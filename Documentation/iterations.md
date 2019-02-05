@@ -1,17 +1,35 @@
-#Livraison1 : D�coupage initial & it�ration 1
-- 3 joueurs pourront jouer ensemble (mettre en place le serveur et cr�er les connexions)
-- 1 seul age existera dans cette premi�re version du jeu
-- 7 merveilles existeront (seulement le nom)
-- 1 seul type de carte et elle seront gratuites
+##Livraison1 : Découpage initial & itération 1
+  * 3 joueurs pourront jouer ensemble (mettre en place le serveur et créer les connexions)
+  * 1 seul âge existera dans cette première version du jeu
+  * 2 types de cartes: les matières premières (elles n'ont pas de coût à cette itération et sont toutes du bois) et les bâtiments civils
+  * Fin de partie et calcul des points en fonctions des batiments civils
 
-#Livraison2 : it�ration 2
+##Livraison2 : itération 2
+  * Ajouter les merveilles (nom, constructions, une face, production)
+  * Ajouter les 4 matières premières
+  * Ajouter les couts de constructions (que pour les matières premières sinon nul)
+  
+##Livraison3 : itération 3
+  * Ajouter les bâtiments militaires et la résolution des conflits
+  * Ajouter les produits manufacturés et les bâtiments commerciaux
+  * Ajouter tous les coûts en matières
+  
+##Livraison4 : itération 4
+  * Ajouter les pièces de monnaies
+  * Ajouter le prix en monnaie des cartes
 
-#Livraison3 : it�ration 3
+##Livraison5 : itération 5
+  * Ajouter l'âge 2
+  * Ajouter les bâtiments gratuits
 
-#Livraison4 : it�ration 4
+  
+##Livraison6 : itération 6
+  * Ajouter l'âge 3
+  * Ajouter les guildes
+  * Ajustement des scores
+  
 
-#Livraison5 : it�ration 5
-
-#Livraison6 : it�ration 6
-
-#Livraison7 : it�ration 7
+##Livraison7 : itération 7
+  * Ajouter les bâtiments scientifiques 
+  * Choix évolutif du nombre de joueurs (7 maximum)
+  
