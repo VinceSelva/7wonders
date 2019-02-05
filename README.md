@@ -8,7 +8,8 @@ Le but du projet est de réaliser le jeu 7 wonders en java.
 
 ## Contributeurs du projet
 
-    * Custodio Cavaco Samuel
-    * La Selva Clément
-    * Martin François
+    * LA SELVA Clément
+    * MARTIN François
+    * POESY Marion
+    * SELVA Vincent
     
