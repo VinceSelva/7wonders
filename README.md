@@ -1,9 +1,14 @@
 # 7wonders
 
-Projet dÈveloppement - Licence MIAGE
+Projet d√©veloppement - Licence MIAGE
 
-Etudiants : 
-- ClÈment LA SELVA
-- Vincent SELVA
-- FranÁois MARTIN
-- Marion POESY
+## Description du projet
+
+Le but du projet est de r√©aliser le jeu 7 wonders en java.
+
+## Contributeurs du projet
+
+    * Custodio Cavaco Samuel
+    * La Selva Cl√©ment
+    * Martin Fran√ßois
+    
