@@ -1,6 +1,8 @@
 package src.main.java.game.game;
 
 import java.util.ArrayList;
+import client.Client;
+import serveur.Serveur;
 
 public class Game {
 
@@ -18,16 +20,33 @@ public class Game {
     public void start(){
 
     }
-
-    public boolean isStarted (){
-        return started ;
-    }
-
+/*
     public Player getRightNeighbor(Player current) {
 
     }
 
     public Player getLeftNeighbor(Player current) {
+
+    }*/
+
+    public final static void main(String [] args) {
+
+        Thread serveur = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Serveur.main(null);
+            }
+        });
+
+        Thread client = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Client.main(null);
+            }
+        });
+
+        serveur.start();
+        client.start();
 
     }
 
