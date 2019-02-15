@@ -11,7 +11,6 @@ import java.io.UnsupportedEncodingException;
 public class Server {
     SocketIOServer server;
     final Object waitingConnection = new Object();
-    private int found = 42;
 
     public Server(Configuration config) {
         server = new SocketIOServer(config);

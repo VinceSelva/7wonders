@@ -42,11 +42,11 @@
     </build>
 
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>PDW7A</groupId>
-            <artifactId>commun</artifactId>
+            <artifactId>game</artifactId>
             <version>1.0</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>com.corundumstudio.socketio</groupId>
             <artifactId>netty-socketio</artifactId>

@@ -35,32 +35,22 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>server.Server</mainClass>
+                    <mainClass>client.Client</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>PDW7A</groupId>
-            <artifactId>commun</artifactId>
+            <artifactId>game</artifactId>
             <version>1.0</version>
-        </dependency>-->
-        <dependency>
-            <groupId>com.corundumstudio.socketio</groupId>
-            <artifactId>netty-socketio</artifactId>
-            <version>1.7.17</version>
         </dependency>
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-transport</artifactId>
-            <version>4.1.32.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
+            <groupId>io.socket</groupId>
+            <artifactId>socket.io-client</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
