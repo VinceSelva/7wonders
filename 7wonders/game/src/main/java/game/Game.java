@@ -9,7 +9,7 @@ public class Game {
     public static final int PlayerMin = 3;
     public static final int PlayerMax = 3;
 
-    private List<Player> players = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
 
     public int turn ;
 
@@ -17,7 +17,7 @@ public class Game {
 
     public Age currentAge ;
 
-    public final static void main(String [] args) {
+    public static void main(String [] args) {
 
         Thread serveur = new Thread(() -> Server.main(null));
 

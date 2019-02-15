@@ -15,12 +15,18 @@ public class Server {
     public Server(Configuration config) {
         server = new SocketIOServer(config);
 
-        System.out.println("Preparing listener ...");
+        System.out.println("Server - Preparing listener ...");
 
         server.addConnectListener(new ConnectListener() {
             @Override
             public void onConnect(SocketIOClient socketIOClient) {
-                System.out.println("New client connected : " + socketIOClient.getRemoteAddress());
+                System.out.println("Server - New client connected : " + socketIOClient.getRemoteAddress());
+
+                socketIOClient.sendEvent("disconnect");
+
+                synchronized (waitingConnection) {
+                    waitingConnection.notify();
+                }
             }
         });
     }
@@ -28,18 +34,18 @@ public class Server {
     private void start() {
         server.start();
 
-        System.out.println("Waiting for connection");
+        System.out.println("Server - Waiting for connection");
 
         synchronized (waitingConnection) {
             try {
                 waitingConnection.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                System.err.println("Error during wait");
+                System.err.println("Server - Error during wait");
             }
         }
 
-        System.out.println("New connection, stopping server.");
+        System.out.println("Server - New connection, stopping server.");
         server.stop();
     }
 
@@ -52,11 +58,11 @@ public class Server {
 
         Configuration config = new Configuration();
         config.setHostname("127.0.0.1");
-        config.setPort(10101);
+        config.setPort(12345);
 
         Server server = new Server(config);
         server.start();
 
-        System.out.println("End of main");
+        System.out.println("Server - End of server main");
     }
 }
