@@ -1,6 +1,8 @@
-package src.main.java.game.game;
+package game;
 
 import java.util.ArrayList;
+import client.Client;
+import server.Server;
 
 public class Game {
 
@@ -15,19 +17,14 @@ public class Game {
 
     public Age currentAge ;
 
-    public void start(){
+    public final static void main(String [] args) {
 
-    }
+        Thread serveur = new Thread(() -> Server.main(null));
 
-    public boolean isStarted (){
-        return started ;
-    }
+        Thread client = new Thread(() -> Client.main(null));
 
-    public Player getRightNeighbor(Player current) {
-
-    }
-
-    public Player getLeftNeighbor(Player current) {
+        serveur.start();
+        client.start();
 
     }
 
