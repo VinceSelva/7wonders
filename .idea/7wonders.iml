@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/7wonders/game" isTestSource="false" packagePrefix="src.main.java.game" />
       <sourceFolder url="file://$MODULE_DIR$/7wonders/client" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7wonders/server" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
