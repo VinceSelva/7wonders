@@ -1,8 +1,6 @@
 package game;
 
 import com.corundumstudio.socketio.SocketIOClient;
-import game.Game;
-import game.Wonder;
 
 public class Player {
 

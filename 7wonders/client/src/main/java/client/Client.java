@@ -13,7 +13,7 @@ public class Client {
 
     private final Object waitingDisconnection = new Object();
 
-    private Client(String serverURL) {
+    private Client(String serverURL, String playerName) {
         try {
             connection = IO.socket(serverURL);
 
@@ -22,33 +22,17 @@ public class Client {
             connection.on("connect", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    System.out.println("Client - Connected");
-                }
-
-            });
-
-            connection.on("disconnect", new Emitter.Listener() {
-                @Override
-                public void call(Object... args) {
-                    System.out.println("Client - Disconnected");
-
-                    connection.disconnect();
-                    connection.close();
-
-                    synchronized (waitingDisconnection) {
-                        waitingDisconnection.notify();
-                    }
+                    connection.emit("identification", playerName);
                 }
             });
-/*
-            connection.on("add player", new Emitter.Listener() {
+
+            connection.on("playerConnected", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    System.out.println("player:" + player + "entered");
-                    connection.emit("add player", var);
+                    String pName = (String)args[0];
+                    System.out.println("Player " + pName + " connected");
                 }
-
-            });*/
+            });
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -76,8 +60,8 @@ public class Client {
             e.printStackTrace();
         }
 
-        Client client = new Client("http://127.0.0.1:12345");
-        client.connect();
+        //Client client = new Client("http://127.0.0.1:12345");
+        //client.connect();
 
         System.out.println("Client - End of main");
     }
