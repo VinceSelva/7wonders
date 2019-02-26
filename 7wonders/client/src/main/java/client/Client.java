@@ -24,6 +24,7 @@ public class Client {
                 public void call(Object... args) {
                     System.out.println("Client - Connected");
                 }
+
             });
 
             connection.on("disconnect", new Emitter.Listener() {
@@ -39,6 +40,15 @@ public class Client {
                     }
                 }
             });
+/*
+            connection.on("add player", new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    System.out.println("player:" + player + "entered");
+                    connection.emit("add player", var);
+                }
+
+            });*/
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

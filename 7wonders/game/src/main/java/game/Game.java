@@ -12,10 +12,43 @@ public class Game {
     private ArrayList<Player> players = new ArrayList<>();
 
     public int turn ;
-
     public boolean started;
 
     public Age currentAge ;
+
+    private ArrayList<Card> cards ;
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCartes(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
+    public Game() {
+        cards = new ArrayList<>();
+    }
+    public Game(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
+
+    public void addCards(Card c) {
+        getCards().add(c);
+    }
+
+
+    public String toString()  {
+        String txt = "[";
+
+        for(Card c : cards) txt += c +" ; ";
+
+        if (txt.length() > 4) txt = txt.substring(0, txt.length()-3);
+
+        txt += "]";
+        return txt;
+    }
 
     public static void main(String [] args) {
 
