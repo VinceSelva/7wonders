@@ -45,6 +45,10 @@ public class Server {
                     for (Player pl: players) {
                         pl.getSocket().sendEvent("playerConnected", p.getname());
                     }
+
+                    if (allIdentified()) {
+                        startGame();
+                    }
                 }
             }
         });
@@ -74,6 +78,10 @@ public class Server {
         }
 
         return result;
+    }
+
+    private void startGame() {
+        DeckAgeI deckAgeI = new DeckAgeI();
     }
 
     private void start() {
