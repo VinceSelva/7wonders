@@ -13,6 +13,7 @@
         <module>server</module>
         <module>game</module>
         <module>client</module>
+        <module>lanceur</module>
     </modules>
 
     <properties>

@@ -17,6 +17,7 @@ public class Participant {
 
     public Participant(SocketIOClient socketIOClient) {
         setSocket(socketIOClient);
+        cards = new ArrayList<>();
     }
 
     public void setSocket(SocketIOClient socket) {

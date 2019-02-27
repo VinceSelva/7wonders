@@ -13,9 +13,7 @@ import java.util.ArrayList;
 public class Client {
     private Socket connection;
 
-    private final Object waitingDisconnection = new Object();
-
-    private Client(String serverURL, String playerName) {
+    public Client(String serverURL, String playerName) {
         try {
             connection = IO.socket(serverURL);
 
@@ -48,31 +46,8 @@ public class Client {
         }
     }
 
-    private void connect() {
+    public void connect() {
         connection.connect();
-
-        System.out.println("Client - Waiting for disconnection");
-
-        synchronized (waitingDisconnection) {
-            try {
-                waitingDisconnection.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                System.out.println("Client - Error during wait");
-            }
-        }
     }
 
-    public static void main(String[] args) {
-        try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        Client client = new Client("http://127.0.0.1:12345", "Joueur 1");
-        client.connect();
-
-        System.out.println("Client - End of main");
-    }
 }

@@ -6,6 +6,7 @@ import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
+import game.Card;
 import game.DeckAgeI;
 import game.Participant;
 import game.Player;
@@ -22,6 +23,7 @@ public class Server {
 
     public Server(Configuration config) {
         server = new SocketIOServer(config);
+        players = new ArrayList<>();
 
         System.out.println("Server - Preparing listener ...");
 
@@ -53,6 +55,23 @@ public class Server {
                     if (allIdentified()) {
                         startGame();
                     }
+                }
+            }
+        });
+
+        // réception de la card jouée
+        server.addEventListener("playedCard", Card.class, new DataListener<Card>() {
+            @Override
+            public void onData(SocketIOClient socketIOClient, Card card, AckRequest ackRequest) throws Exception {
+                // retrouver le participant
+                Participant p = findPlayer(socketIOClient);
+                if (p != null) {
+                    System.out.println("serveur > "+p+" a joue "+card);
+                    // puis lui supprimer de sa main la card jouée
+                    p.getMain().getcards().remove(card);
+                    System.out.println("serveur > il reste a "+p+" les cards "+p.getMain().getcards());
+
+                    // etc.
                 }
             }
         });
@@ -88,24 +107,25 @@ public class Server {
         DeckAgeI deckAgeI = new DeckAgeI();
         deckAgeI.shuffle();
 
-        for (Participant p: players) {
-            // 4 cartes par personne
+        /*for (Participant p: players) {
+            // 4 cards par personne
             for (int i = 0; i < 4; i++) {
                 p.addCard(deckAgeI.getCard(0));
                 deckAgeI.removeCard(0);
             }
 
-            // Envoie des cartes au joueur
+            // Envoie des cards au joueur
             p.getSocket().sendEvent("playerCards", p.getCards().get(0));
-        }
+        }*/
+
     }
 
-    private void start() {
+    public void start() {
         server.start();
 
         System.out.println("Server - Waiting for connection");
 
-        server.stop();
+        //server.stop();
     }
 
     public static void main(String[] args) {
@@ -122,6 +142,5 @@ public class Server {
         Server server = new Server(config);
         server.start();
 
-        System.out.println("Server - End of server main");
     }
 }

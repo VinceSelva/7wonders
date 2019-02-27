@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="client" />
         <module name="game" />
+        <module name="lanceur" />
         <module name="server" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="7wonders" target="1.8" />
       <module name="client" target="1.8" />
       <module name="game" target="1.8" />
+      <module name="lanceur" target="1.8" />
       <module name="server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
