@@ -10,6 +10,7 @@ import game.Card;
 import game.DeckAgeI;
 import game.Participant;
 import game.Player;
+import org.json.JSONArray;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
@@ -107,16 +108,18 @@ public class Server {
         DeckAgeI deckAgeI = new DeckAgeI();
         deckAgeI.shuffle();
 
-        /*for (Participant p: players) {
-            // 4 cards par personne
+        for (Participant p: players) {
+            // 4 cartes par personne
             for (int i = 0; i < 4; i++) {
-                p.addCard(deckAgeI.getCard(0));
+                Card randomCard = deckAgeI.getCard(0);
                 deckAgeI.removeCard(0);
-            }
 
-            // Envoie des cards au joueur
-            p.getSocket().sendEvent("playerCards", p.getCards().get(0));
-        }*/
+                p.addCard(randomCard);
+                String cardName = randomCard.getName();
+                p.getSocket().sendEvent("playerCards", cardName);
+                System.out.println("Server - Sent card " + cardName + " to player " + p.getname());
+            }
+        }
 
     }
 
@@ -126,21 +129,5 @@ public class Server {
         System.out.println("Server - Waiting for connection");
 
         //server.stop();
-    }
-
-    public static void main(String[] args) {
-        try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        Configuration config = new Configuration();
-        config.setHostname("127.0.0.1");
-        config.setPort(12345);
-
-        Server server = new Server(config);
-        server.start();
-
     }
 }

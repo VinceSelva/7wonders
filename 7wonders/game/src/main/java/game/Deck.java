@@ -25,4 +25,6 @@ public class Deck {
     public void removeCard(int i) {
         cards.remove(i);
     }
+
+    public ArrayList<Card> getCards() { return cards; }
 }

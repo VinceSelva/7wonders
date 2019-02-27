@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class Client {
     private Socket connection;
+    private static String playerName;
 
     public Client(String serverURL, String playerName) {
         try {
@@ -23,6 +24,7 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     connection.emit("identification", playerName);
+                    setName(playerName);
                 }
             });
 
@@ -30,21 +32,25 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     String pName = (String)args[0];
-                    System.out.println("Player " + pName + " connected");
+                    System.out.println("Client " + playerName + " - Player " + pName + " connected");
                 }
             });
 
             connection.on("playerCards", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    Card firstCard = (Card)args[0];
-                    System.out.println("My cards : " + firstCard);
+                    String cardName = (String)args[0];
+                    System.out.println("Client " + playerName + " - received card " + cardName);
                 }
             });
+
+
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }
+
+    private void setName(String name) { this.playerName = name; }
 
     public void connect() {
         connection.connect();
