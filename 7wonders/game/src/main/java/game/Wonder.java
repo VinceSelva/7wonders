@@ -15,11 +15,11 @@ public class Wonder {
         this.deck = deck;
     }
 
-    public String getwonderMaterials() {
+    public RawMaterials getwonderMaterials() {
         return wonderMaterials;
     }
 
-    public void setwonderMaterials(String wonderMaterials) {
+    public void setwonderMaterials(RawMaterials wonderMaterials) {
         this.wonderMaterials = wonderMaterials;
     }
 
@@ -31,8 +31,8 @@ public class Wonder {
         this.name = name;
     }
 
-    public Wonder() { setwonderMaterials("-vide-");}
-    public Wonder(String n) { this(); setname(n);}
+    //public Wonder() { setwonderMaterials(RawMaterials);}
+  //  public Wonder(String n) { this(); setname(n);}
 
 
     public String toString() {
