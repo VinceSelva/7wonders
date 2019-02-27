@@ -10,7 +10,7 @@ public class Cost{
         	this.nb = nombre;
     }
 
-	public Resources getRes() {	
+	public RawMaterials getRes() {
 		return resource;
     }
 	

@@ -1,22 +1,18 @@
 package game;
 
-import game.Messages;
-import game.Card;
-import game.Main;
-import game.Wonder;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONException;
 
 import java.net.URISyntaxException;
 
 public class Player {
 
     private String nom;
-    Socket connexion ;
+    Socket connexion;
     private Wonder wonder;
 
     public Player(String un_joueur) {
@@ -49,12 +45,12 @@ public class Player {
                         String n = wonderJSON.getString("nom");
                         // les wonders ont toutes une ressource vide, pour illustrer avec un objet avec plus qu'une seule propriété
                         String ressource = wonderJSON.getString("ressource");
-                        Wonder m = new wonder(n);
-                        m.setwonderMaterials(ressource);
+                        //Wonder m = new Wonder(n);
+                        //m.setwonderMaterials(ressource);
 
                         // mémorisation de la wonder
-                        System.out.println(nom+" > j'ai recu "+m);
-                        setwonder(m);
+                        //System.out.println(nom+" > j'ai recu "+m);
+                        //setwonder(m);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -74,8 +70,8 @@ public class Player {
                         // on recrée chaque card
                         for(int j = 0 ; j < cardsJSON.length(); j++) {
                             JSONObject cardJSON = (JSONObject) cardsJSON.get(j);
-                            Card c = new Card(cardsJSON.getString("name"));
-                            m.addCard(c);
+                            //Card c = new Card(cardsJSON.getString("name"));
+                            //m.addCard(c);
                         }
                         System.out.println(nom+" > j'ai recu "+m);
 

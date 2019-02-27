@@ -6,6 +6,8 @@ import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
+import game.DeckAgeI;
+import game.Participant;
 import game.Player;
 
 import java.io.PrintStream;
@@ -14,7 +16,9 @@ import java.util.ArrayList;
 
 public class Server {
     private SocketIOServer server;
-    private ArrayList<Player> players;
+    private ArrayList<Participant> players;
+    private static final int NB_PLAYERS = 3;
+
 
     public Server(Configuration config) {
         server = new SocketIOServer(config);
@@ -27,8 +31,8 @@ public class Server {
                 System.out.println("Server - New client connected : " + socketIOClient.getRemoteAddress());
 
                 // 3 joueurs requis
-                if (players.size() < 3) {
-                    Player p = new Player(socketIOClient);
+                if (players.size() < NB_PLAYERS) {
+                    Participant p = new Participant(socketIOClient);
                     players.add(p);
                 }
             }
@@ -37,12 +41,12 @@ public class Server {
         server.addEventListener("identification", String.class, new DataListener<String>() {
             @Override
             public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
-                Player p = findPlayer(client);
+                Participant p = findPlayer(client);
 
                 if (p != null) {
                     p.setname(data);
 
-                    for (Player pl: players) {
+                    for (Participant pl: players) {
                         pl.getSocket().sendEvent("playerConnected", p.getname());
                     }
 
@@ -54,10 +58,10 @@ public class Server {
         });
     }
 
-    private Player findPlayer(SocketIOClient client) {
-        Player p = null;
+    private Participant findPlayer(SocketIOClient client) {
+        Participant p = null;
 
-        for (Player pl: players) {
+        for (Participant pl: players) {
             if (pl.getSocket().equals(client)) {
                 p = pl;
                 break;
@@ -70,7 +74,7 @@ public class Server {
     private boolean allIdentified() {
         boolean result = true;
 
-        for (Player p: players) {
+        for (Participant p: players) {
             if (p.getname() == null) {
                 result = false;
                 break;
@@ -82,6 +86,18 @@ public class Server {
 
     private void startGame() {
         DeckAgeI deckAgeI = new DeckAgeI();
+        deckAgeI.shuffle();
+
+        for (Participant p: players) {
+            // 4 cartes par personne
+            for (int i = 0; i < 4; i++) {
+                p.addCard(deckAgeI.getCard(0));
+                deckAgeI.removeCard(0);
+            }
+
+            // Envoie des cartes au joueur
+            p.getSocket().sendEvent("playerCards", p.getCards().get(0));
+        }
     }
 
     private void start() {

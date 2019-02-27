@@ -2,6 +2,8 @@ package game;
 
 import com.corundumstudio.socketio.SocketIOClient;
 
+import java.util.ArrayList;
+
 public class Participant {
 
     private String name;
@@ -10,9 +12,10 @@ public class Participant {
     private SocketIOClient socket;
     private Wonder wonder;
     private Main main;
+    private ArrayList<Card> cards;
 
 
-    public Player(SocketIOClient socketIOClient) {
+    public Participant(SocketIOClient socketIOClient) {
         setSocket(socketIOClient);
     }
 
@@ -54,4 +57,8 @@ public class Participant {
     public Main getMain() {
         return main;
     }
+
+    public void addCard(Card card) { cards.add(card); }
+
+    public ArrayList<Card> getCards() { return cards; }
 }

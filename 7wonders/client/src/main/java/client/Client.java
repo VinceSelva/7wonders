@@ -1,5 +1,6 @@
 package client;
 
+import game.Card;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -7,6 +8,7 @@ import io.socket.emitter.Emitter;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 public class Client {
     private Socket connection;
@@ -31,6 +33,14 @@ public class Client {
                 public void call(Object... args) {
                     String pName = (String)args[0];
                     System.out.println("Player " + pName + " connected");
+                }
+            });
+
+            connection.on("playerCards", new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    Card firstCard = (Card)args[0];
+                    System.out.println("My cards : " + firstCard);
                 }
             });
         } catch (URISyntaxException e) {
@@ -60,8 +70,8 @@ public class Client {
             e.printStackTrace();
         }
 
-        //Client client = new Client("http://127.0.0.1:12345");
-        //client.connect();
+        Client client = new Client("http://127.0.0.1:12345", "Joueur 1");
+        client.connect();
 
         System.out.println("Client - End of main");
     }
