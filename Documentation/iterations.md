@@ -9,7 +9,6 @@ Les points seront ajustés à chaque itération
 ## Livraison2 : itération 2
   * Ajouter les merveilles (nom, une face, production)
   * Ajouter les 4 matières premières
-  * Ajouter les couts de constructions (que pour les matières premières sinon nul)
   * Ajouter les produits manufacturés
   
 ## Livraison3 : itération 3
@@ -22,6 +21,7 @@ Les points seront ajustés à chaque itération
   * Ajouter les pièces de monnaies
   * Ajouter le prix en monnaie des cartes
   * Augmentation du nombre de joueurs à 4
+  * Ajouter les couts de constructions (que pour les matières premières sinon nul)
   * Ajouter l'âge 2
   * Ajouter le deck pour l'âge 2 et les cartes correspondantes
 
