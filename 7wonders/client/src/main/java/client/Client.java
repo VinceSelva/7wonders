@@ -36,6 +36,14 @@ public class Client {
                 }
             });
 
+            connection.on("playerWonder", new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    String wonderName = (String)args[0];
+                    System.out.println("Client " + playerName + " - received wonder " + wonderName);
+                }
+            });
+
             connection.on("playerCards", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
