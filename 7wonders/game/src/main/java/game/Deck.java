@@ -27,4 +27,17 @@ public class Deck {
     }
 
     public ArrayList<Card> getCards() { return cards; }
+
+    public Card nameToCard(String name) {
+        Card card = null;
+
+        for (Card c: cards) {
+            if (c.getName().equals(name)) {
+                card = c;
+                break;
+            }
+        }
+
+        return card;
+    }
 }
