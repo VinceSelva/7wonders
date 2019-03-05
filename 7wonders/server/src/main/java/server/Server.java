@@ -11,10 +11,6 @@ import game.DeckAgeI;
 import game.Participant;
 import game.Wonder;
 import game.WonderList;
-import org.json.JSONArray;
-
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class Server {
@@ -104,10 +100,9 @@ public class Server {
         wonderlist.shuffle();
         DeckAgeI deckAgeI = new DeckAgeI();
         deckAgeI.shuffle();
-
+        int cardNumber = 4; // 4 cartes par personne
         for (Participant p: players) {
-            // 4 cartes par personne
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < cardNumber; i++) {
                 Card randomCard = deckAgeI.getCard(0);
                 deckAgeI.removeCard(0);
 
@@ -125,10 +120,13 @@ public class Server {
         }
 
         System.out.println("Server - Sending turn event --------------------------------------------------");
-
-        for (Participant p: players) {
-            p.getSocket().sendEvent("turn");
+        for (int i = 0 ; i<cardNumber;i++){
+                for (Participant p: players) {
+                    p.getSocket().sendEvent("turn");
+                }
         }
+
+
     }
 
     public void start() {

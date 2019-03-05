@@ -62,12 +62,27 @@ public class Client {
                 public void call(Object... args) {
                     String cardsString = "";
                     ArrayList<Card> playerCards = player.getCards();
+                    int playerCardsSize = player.getCards().size()/3;
                     for (Card c: playerCards) {
                         cardsString += " | " + c.getName();
                     }
                     cardsString += " |";
                     System.out.println("Client " + playerName + " - cards :" + cardsString);
-                    connection.emit("playedCard", playerCards.get(0).getName());
+                    if(playerCardsSize>1){
+                        connection.emit("playedCard", playerCards.get(0).getName());
+                        playerCards.remove(0);
+                    }
+                    else {
+                        playerCards.remove(0);
+                        System.out.println("fin de la partie");
+                    }
+                }
+            });
+
+            connection.on("fin de la partie", new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                   
                 }
             });
 
