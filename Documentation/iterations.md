@@ -19,20 +19,21 @@ Les points seront ajustés à chaque itération
   * Calcul du score à la fin de l'âge 1
   
 ## Livraison4 : itération 4
-  * Ajouter tous les coûts en matières
   * Ajouter les pièces de monnaies
   * Ajouter le prix en monnaie des cartes
+  * Augmentation du nombre de joueurs à 4
+  * Ajouter l'âge 2
+  * Ajouter le deck pour l'âge 2 et les cartes correspondantes
 
 ## Livraison5 : itération 5
-  * Ajouter le commerce entre les joueurs
+  * Ajouter tous les coûts en matières
   * Ajouter le défaussage pour obtenir des pièces
   
 ## Livraison6 : itération 6
   * Ajouter les bâtiments militaires et la résolution des conflits
-  * Augmentation du nombre de joueurs à 4
+  * Ajouter le commerce entre les joueurs
   
 ## Livraison7 : itération 7
-  * Ajouter l'âge 2
-  * Ajouter le deck pour l'âge 2 et les cartes correspondantes
   * Ajouter l'âge 3
   * Ajouter le deck pour l'âge 3 et les cartes correspondantes
+  * Ajouter les étapes de construction des merveilles
