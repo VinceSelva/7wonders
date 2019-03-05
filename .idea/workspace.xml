@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c3b0804e-df6b-43b5-bfb2-d3e41757679d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/7wonders/client/target/" />
@@ -22,20 +25,8 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lanceur.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="863">
+              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,11 +37,8 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="127" column="38" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -58,70 +46,8 @@
       <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WonderList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/WonderList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="32" column="15" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Deck.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#148#149#0" expanded="true" />
-                <element signature="e#189#190#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#258#259#0" expanded="true" />
-                <element signature="e#435#436#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Wonder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#980#981#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeckAgeI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cost.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Cost.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="150">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -172,7 +98,6 @@
         <option value="$PROJECT_DIR$/7wonders/server/pom.xml" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Game.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" />
-        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Messages.java" />
         <option value="$PROJECT_DIR$/7wonders/client/pom.xml" />
         <option value="$PROJECT_DIR$/7wonders/pom.xml" />
@@ -181,10 +106,11 @@
         <option value="$PROJECT_DIR$/7wonders/game/pom.xml" />
         <option value="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" />
         <option value="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" />
-        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/WonderList.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java" />
+        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
+        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" />
         <option value="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" />
       </list>
@@ -209,7 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -362,6 +287,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -490,15 +416,18 @@
       <workItem from="1551281094667" duration="495000" />
       <workItem from="1551769484198" duration="3806000" />
       <workItem from="1551791642737" duration="1782000" />
-      <workItem from="1551793467347" duration="298000" />
+      <workItem from="1551793467347" duration="699000" />
+      <workItem from="1551794471085" duration="1362000" />
+      <workItem from="1551798487725" duration="1123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27184000" />
+    <option name="totallyTimeSpent" value="30070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="725" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -510,11 +439,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25955415" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21974522" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.16401275" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31987077" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32956383" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -538,14 +467,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
   </component>
@@ -632,24 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Age.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/CardType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -709,16 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="51" column="61" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -735,13 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
@@ -770,6 +660,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -788,7 +688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/WonderList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="375">
           <caret line="32" column="15" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -796,33 +696,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Age.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="863">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java">
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="615">
+          <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#710#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="36" selection-end-line="131" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="127" column="38" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>

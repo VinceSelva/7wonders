@@ -11,7 +11,6 @@ import game.DeckAgeI;
 import game.Participant;
 import game.Wonder;
 import game.WonderList;
-import game.Player;
 import org.json.JSONArray;
 
 import java.io.PrintStream;
@@ -126,6 +125,7 @@ public class Server {
         }
 
         System.out.println("Server - Sending turn event --------------------------------------------------");
+
         for (Participant p: players) {
             p.getSocket().sendEvent("turn");
         }
