@@ -11,7 +11,6 @@ public class Participant {
 
     private SocketIOClient socket;
     private Wonder wonder;
-    private Main main;
     private ArrayList<Card> cards;
 
 
@@ -53,13 +52,6 @@ public class Participant {
 
     public void addWonder(Wonder wonder){wonder.add(wonder);}
 
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public Main getMain() {
-        return main;
-    }
 
     public void addCard(Card card) { cards.add(card); }
 
