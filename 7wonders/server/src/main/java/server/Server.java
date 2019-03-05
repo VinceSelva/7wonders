@@ -116,13 +116,15 @@ public class Server {
             // 4 cartes par personne
             for (int i = 0; i < 4; i++) {
                 Card randomCard = deckAgeI.getCard(0);
+                deckAgeI.removeCard(0);
 
                 p.addCard(randomCard);
                 String cardName = randomCard.getName();
                 p.getSocket().sendEvent("playerCards", cardName);
                 System.out.println("Server - Sent card " + cardName + " to player " + p.getname());
             }
-            Wonder randomWonder = wonderlist.getWonder((int) (Math.random() * 3));
+            Wonder randomWonder = wonderlist.getWonder(0);
+            wonderlist.removeWonder(0);
             p.addWonder(randomWonder);
             String wonderName = randomWonder.getName();
             p.getSocket().sendEvent("playerWonder",wonderName);
