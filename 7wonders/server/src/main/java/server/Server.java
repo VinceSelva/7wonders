@@ -9,6 +9,8 @@ import com.corundumstudio.socketio.listener.DataListener;
 import game.Card;
 import game.DeckAgeI;
 import game.Participant;
+import game.Wonder;
+import game.WonderList;
 import game.Player;
 import org.json.JSONArray;
 
@@ -105,6 +107,8 @@ public class Server {
     }
 
     private void startGame() {
+        WonderList wonderlist = new WonderList();
+        wonderlist.shuffle();
         DeckAgeI deckAgeI = new DeckAgeI();
         deckAgeI.shuffle();
 
@@ -112,13 +116,17 @@ public class Server {
             // 4 cartes par personne
             for (int i = 0; i < 4; i++) {
                 Card randomCard = deckAgeI.getCard(0);
-                deckAgeI.removeCard(0);
 
                 p.addCard(randomCard);
                 String cardName = randomCard.getName();
                 p.getSocket().sendEvent("playerCards", cardName);
                 System.out.println("Server - Sent card " + cardName + " to player " + p.getname());
             }
+            Wonder randomWonder = wonderlist.getWonder((int) (Math.random() * 3));
+            p.addWonder(randomWonder);
+            String wonderName = randomWonder.getName();
+            p.getSocket().sendEvent("playerWonder",wonderName);
+            System.out.println("Server - Sent wonder " + wonderName + " to player " + p.getname());
         }
 
     }

@@ -47,9 +47,11 @@ public class Participant {
         this.wonder = wonder;
     }
 
-    public Wonder getwonder() {
+    public ArrayList<Wonder> getwonder() {
         return wonder;
     }
+
+    public void addWonder(Wonder wonder){wonder.add(wonder);}
 
     public void setMain(Main main) {
         this.main = main;

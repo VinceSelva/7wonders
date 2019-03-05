@@ -1,33 +1,36 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Wonder {
+public class Wonder extends ArrayList<Wonder> {
 
     private String name;
     private RawMaterials wonderMaterials;
     private List<Card> deck;
     private boolean side;
+   // private ArrayList<Card> cards;
 
-    public Wonder(String name, RawMaterials wonderMaterials, List<Card> deck) {
+    public Wonder(String name, RawMaterials wonderMaterials/*, List<Card> deck*/) {
         this.name = name;
         this.wonderMaterials = wonderMaterials;
-        this.deck = deck;
+       // this.deck = deck;
     }
 
-    public RawMaterials getwonderMaterials() {
+    public RawMaterials getWonderMaterials() {
         return wonderMaterials;
     }
 
-    public void setwonderMaterials(RawMaterials wonderMaterials) {
+    public void setWonderMaterials(RawMaterials wonderMaterials) {
         this.wonderMaterials = wonderMaterials;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -36,7 +39,7 @@ public class Wonder {
 
 
     public String toString() {
-        return "wonder "+getname();
+        return "wonder "+ getName();
     }
 
 
