@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b0804e-df6b-43b5-bfb2-d3e41757679d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/7wonders/client/target/" />
@@ -22,11 +19,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+            <state relative-caret-position="353">
+              <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3113#3114#0" expanded="true" />
+                <element signature="e#3149#3150#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1288">
+              <caret line="122" column="43" selection-start-line="122" selection-start-column="43" selection-end-line="122" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,20 +45,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="-142">
               <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +110,6 @@
         <option value="$PROJECT_DIR$/7wonders/lanceur/src/main/java/Lanceur.java" />
         <option value="$PROJECT_DIR$/7wonders/game/pom.xml" />
         <option value="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" />
-        <option value="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/WonderList.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java" />
@@ -113,6 +117,7 @@
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" />
         <option value="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" />
+        <option value="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" />
       </list>
     </option>
   </component>
@@ -418,12 +423,12 @@
       <workItem from="1551791642737" duration="1782000" />
       <workItem from="1551793467347" duration="699000" />
       <workItem from="1551794471085" duration="1362000" />
-      <workItem from="1551798487725" duration="1123000" />
+      <workItem from="1551798487725" duration="3116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30070000" />
+    <option name="totallyTimeSpent" value="32063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="725" extended-state="0" />
@@ -439,11 +444,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21974522" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21974522" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.16401275" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32956383" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32956383" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -703,16 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -732,15 +727,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="-142">
           <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="1288">
+          <caret line="122" column="43" selection-start-line="122" selection-start-column="43" selection-end-line="122" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3113#3114#0" expanded="true" />
+            <element signature="e#3149#3150#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
