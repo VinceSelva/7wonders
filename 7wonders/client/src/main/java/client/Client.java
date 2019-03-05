@@ -1,6 +1,8 @@
 package client;
 
 import game.Card;
+import game.DeckAgeI;
+import game.Participant;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 public class Client {
     private Socket connection;
     private static String playerName;
+    private Participant player = new Participant(null);
+    private DeckAgeI deckAgeI = new DeckAgeI();
 
     public Client(String serverURL, String playerName) {
         try {
@@ -49,6 +53,21 @@ public class Client {
                 public void call(Object... args) {
                     String cardName = (String)args[0];
                     System.out.println("Client " + playerName + " - received card " + cardName);
+                    player.addCard(deckAgeI.nameToCard(cardName));
+                }
+            });
+
+            connection.on("turn", new Emitter.Listener() {
+                @Override
+                public void call(Object... args) {
+                    String cardsString = "";
+                    ArrayList<Card> playerCards = player.getCards();
+                    for (Card c: playerCards) {
+                        cardsString += " | " + c.getName();
+                    }
+                    cardsString += " |";
+                    System.out.println("Client " + playerName + " - cards :" + cardsString);
+                    connection.emit("playedCard", playerCards.get(0).getName());
                 }
             });
 

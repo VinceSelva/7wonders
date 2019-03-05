@@ -62,19 +62,13 @@ public class Server {
             }
         });
 
-        // réception de la card jouée
-        server.addEventListener("playedCard", Card.class, new DataListener<Card>() {
+        server.addEventListener("playedCard", String.class, new DataListener<String>() {
             @Override
-            public void onData(SocketIOClient socketIOClient, Card card, AckRequest ackRequest) throws Exception {
-                // retrouver le participant
-                Participant p = findPlayer(socketIOClient);
-                if (p != null) {
-                    System.out.println("serveur > "+p+" a joue "+card);
-                    // puis lui supprimer de sa main la card jouée
-                    p.getMain().getcards().remove(card);
-                    System.out.println("serveur > il reste a "+p+" les cards "+p.getMain().getcards());
+            public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
+                Participant p = findPlayer(client);
 
-                    // etc.
+                if (p != null) {
+                    System.out.println("Server - " + p.getname() + " played " + data);
                 }
             }
         });
@@ -131,6 +125,10 @@ public class Server {
             System.out.println("Server - Sent wonder " + wonderName + " to player " + p.getname());
         }
 
+        System.out.println("Server - Sending turn event --------------------------------------------------");
+        for (Participant p: players) {
+            p.getSocket().sendEvent("turn");
+        }
     }
 
     public void start() {
