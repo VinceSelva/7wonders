@@ -13,28 +13,26 @@ Les points seront ajustés à chaque itération
   * Ajouter les produits manufacturés
   
 ## Livraison3 : itération 3
-  * Ajouter les bâtiments militaires et la résolution des conflits
   * Ajouter les bâtiments commerciaux
-  * Ajouter tous les coûts en matières
   * Ajouter les constructions des merveilles
+  * Les joueurs jouent tous les tours de l'âge 1
+  * Calcul du score à la fin de l'âge 1
   
 ## Livraison4 : itération 4
+  * Ajouter tous les coûts en matières
   * Ajouter les pièces de monnaies
   * Ajouter le prix en monnaie des cartes
-  * Ajouter le commerce entre les joueurs
-  * Ajouter le défaussage pour obtenir des pièces
 
 ## Livraison5 : itération 5
-  * Ajouter l'âge 2
-  * Ajouter les bâtiments gratuits
-  * Ajouter la face B
+  * Ajouter le commerce entre les joueurs
+  * Ajouter le défaussage pour obtenir des pièces
   
 ## Livraison6 : itération 6
-  * Ajouter l'âge 3
-  * Ajouter les guildes
+  * Ajouter les bâtiments militaires et la résolution des conflits
+  * Augmentation du nombre de joueurs à 4
   
 ## Livraison7 : itération 7
-  * Ajouter les bâtiments scientifiques 
-  * Choix évolutif du nombre de joueurs (7 maximum)
-  * Prise en compte des cartes en fonction du nombre de joueurs
-  
+  * Ajouter l'âge 2
+  * Ajouter le deck pour l'âge 2 et les cartes correspondantes
+  * Ajouter l'âge 3
+  * Ajouter le deck pour l'âge 3 et les cartes correspondantes
