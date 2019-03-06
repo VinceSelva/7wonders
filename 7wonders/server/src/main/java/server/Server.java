@@ -11,12 +11,18 @@ import game.DeckAgeI;
 import game.Participant;
 import game.Wonder;
 import game.WonderList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Server {
     private SocketIOServer server;
     private ArrayList<Participant> players;
     private static final int NB_PLAYERS = 3;
+    private int nbPlayersPlayed = 0;
+    private int turnNb = 0;
 
 
     public Server(Configuration config) {
@@ -64,6 +70,12 @@ public class Server {
 
                 if (p != null) {
                     System.out.println("Server - " + p.getname() + " played " + data);
+                    p.removeCard(0);
+                    nbPlayersPlayed++;
+                }
+
+                if (nbPlayersPlayed == 3 && turnNb < 2) {
+                    newTurn();
                 }
             }
         });
@@ -86,7 +98,7 @@ public class Server {
         boolean result = true;
 
         for (Participant p: players) {
-            if (p.getname() == null) {
+            if (p.getname() == null || p.getname() == "") {
                 result = false;
                 break;
             }
@@ -102,15 +114,17 @@ public class Server {
         deckAgeI.shuffle();
         int cardNumber = 4; // 4 cartes par personne
         for (Participant p: players) {
+            ArrayList<String> cardsNames = new ArrayList<>();
             for (int i = 0; i < cardNumber; i++) {
                 Card randomCard = deckAgeI.getCard(0);
                 deckAgeI.removeCard(0);
 
                 p.addCard(randomCard);
-                String cardName = randomCard.getName();
-                p.getSocket().sendEvent("playerCards", cardName);
-                System.out.println("Server - Sent card " + cardName + " to player " + p.getname());
+                cardsNames.add(randomCard.getName());
             }
+            JSONArray cards = cardsToJSON(cardsNames);
+            p.getSocket().sendEvent("playerCards", cards.toString());
+            System.out.println("Server - Sent cards " + cards + " to player " + p.getname());
             Wonder randomWonder = wonderlist.getWonder(0);
             wonderlist.removeWonder(0);
             p.addWonder(randomWonder);
@@ -120,13 +134,54 @@ public class Server {
         }
 
         System.out.println("Server - Sending turn event --------------------------------------------------");
-        for (int i = 0 ; i<cardNumber;i++){
-                for (Participant p: players) {
-                    p.getSocket().sendEvent("turn");
-                }
+        for (Participant p: players) {
+            p.getSocket().sendEvent("turn");
+        }
+        turnNb++;
+    }
+
+    private void newTurn() {
+        ArrayList<Card> firstPlayerCards = players.get(0).getCards();
+
+        for (int i = 1; i < NB_PLAYERS; i++) {
+            Participant p = players.get(i);
+            Participant prevP = players.get(i-1);
+            ArrayList<Card> pCards = p.getCards();
+            prevP.clearCards();
+
+            for (int j = 0; j < pCards.size(); j++) {
+                Card card = pCards.get(j);
+                String cardName = card.getName();
+                prevP.getSocket().sendEvent("playerCards", cardName);
+                System.out.println("Server - Sent card " + cardName + " to player " + prevP.getname());
+            }
         }
 
+        Participant lastPlayer = players.get(NB_PLAYERS - 1);
+        for (int j = 0; j < firstPlayerCards.size(); j++) {
+            Card card = firstPlayerCards.get(j);
+            String cardName = card.getName();
+            lastPlayer.getSocket().sendEvent("playerCards", cardName);
+            System.out.println("Server - Sent card " + cardName + " to player " + lastPlayer.getname());
+        }
+        nbPlayersPlayed = 0;
+        for (Participant p: players) {
+            p.getSocket().sendEvent("turn");
+        }
+        turnNb++;
+    }
 
+    private JSONArray cardsToJSON(ArrayList<String> cards) {
+        JSONArray cardsJ = new JSONArray();
+        try {
+            for (int i=0;i<cards.size();i++){
+                cardsJ.put(cards.get(i));
+            }
+        }
+        catch (Exception e){
+            System.out.println("Server - JSON error - " + e.getMessage());
+        }
+        return cardsJ;
     }
 
     public void start() {

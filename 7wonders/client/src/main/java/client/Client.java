@@ -6,9 +6,12 @@ import game.Participant;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
@@ -51,9 +54,17 @@ public class Client {
             connection.on("playerCards", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    String cardName = (String)args[0];
-                    System.out.println("Client " + playerName + " - received card " + cardName);
-                    player.addCard(deckAgeI.nameToCard(cardName));
+                    try {
+                        JSONArray cards = new JSONArray((String)args[0]);
+                        System.out.println("Client " + playerName + " - received card " + cards);
+                        for (int i = 0; i < cards.length(); i++) {
+                            player.addCard(deckAgeI.nameToCard(cards.getString(i)));
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Client - JSON error - " + e.getMessage());
+                    }
+
+
                 }
             });
 
@@ -62,7 +73,7 @@ public class Client {
                 public void call(Object... args) {
                     String cardsString = "";
                     ArrayList<Card> playerCards = player.getCards();
-                    int playerCardsSize = player.getCards().size()/3;
+                    int playerCardsSize = player.getCards().size();
                     for (Card c: playerCards) {
                         cardsString += " | " + c.getName();
                     }
@@ -70,7 +81,7 @@ public class Client {
                     System.out.println("Client " + playerName + " - cards :" + cardsString);
                     if(playerCardsSize>1){
                         connection.emit("playedCard", playerCards.get(0).getName());
-                        playerCards.remove(0);
+                        player.clearCards();
                     }
                     else {
                         playerCards.remove(0);
