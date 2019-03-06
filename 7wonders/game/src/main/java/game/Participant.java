@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Participant {
 
-    private String name;
+    private String name = "";
     private int score;
 
     private SocketIOClient socket;
@@ -56,4 +56,8 @@ public class Participant {
     public void addCard(Card card) { cards.add(card); }
 
     public ArrayList<Card> getCards() { return cards; }
+
+    public void clearCards() { this.cards = new ArrayList<>(); }
+
+    public void removeCard(int i) { if (this.cards.size() > 0) { this.cards.remove(i); } }
 }

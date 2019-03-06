@@ -21,12 +21,13 @@ public class Lanceur {
         int port = (new Random()).nextInt(10000) + 10000;
         config.setPort(port);
 
-        Server server = new Server(config);
-        server.start();
-
         for (int i=1 ; i<=nbPlayer;i++){
             Client client = new Client("http://127.0.0.1:" + port, "Joueur"+ i);
             client.connect();
         }
+
+        Server server = new Server(config);
+        server.start();
+
     }
 }
