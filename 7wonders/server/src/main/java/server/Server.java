@@ -142,6 +142,7 @@ public class Server {
 
     private void newTurn() {
         ArrayList<Card> firstPlayerCards = players.get(0).getCards();
+        ArrayList<String> cardsNames = new ArrayList<>();
 
         for (int i = 1; i < NB_PLAYERS; i++) {
             Participant p = players.get(i);
@@ -149,21 +150,30 @@ public class Server {
             ArrayList<Card> pCards = p.getCards();
             prevP.clearCards();
 
+
             for (int j = 0; j < pCards.size(); j++) {
                 Card card = pCards.get(j);
-                String cardName = card.getName();
-                prevP.getSocket().sendEvent("playerCards", cardName);
-                System.out.println("Server - Sent card " + cardName + " to player " + prevP.getname());
+             //   cardName = card.getName();
+                cardsNames.add(card.getName());
+
+
             }
+            JSONArray cards = cardsToJSON(cardsNames);
+            prevP.getSocket().sendEvent("playerCards", cards.toString());
+            //prevP.getSocket().sendEvent("playerCards", cardName);
+            System.out.println("Server - Sent card " + cardsNames + " to player " + prevP.getname());
         }
 
         Participant lastPlayer = players.get(NB_PLAYERS - 1);
-        for (int j = 0; j < firstPlayerCards.size(); j++) {
-            Card card = firstPlayerCards.get(j);
-            String cardName = card.getName();
-            lastPlayer.getSocket().sendEvent("playerCards", cardName);
-            System.out.println("Server - Sent card " + cardName + " to player " + lastPlayer.getname());
+        cardsNames.clear();
+        for (int i = 0; i < firstPlayerCards.size(); i++) {
+            Card card = firstPlayerCards.get(0);
+
+            cardsNames.add(card.getName());
         }
+        JSONArray cards = cardsToJSON(cardsNames);
+        lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
+        System.out.println("Server - Sent card " + cards + " to player " + lastPlayer.getname());
         nbPlayersPlayed = 0;
         for (Participant p: players) {
             p.getSocket().sendEvent("turn");
