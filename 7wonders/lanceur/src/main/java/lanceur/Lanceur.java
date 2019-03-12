@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Lanceur {
     public static void main(String[] args) {
-        int nbPlayer=3;
+        int nbPlayer=4;
         try {
             System.setOut(new PrintStream(System.out, true, "UTF-8"));
         } catch (UnsupportedEncodingException e) {

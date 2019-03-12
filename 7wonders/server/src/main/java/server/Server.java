@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class Server {
     private SocketIOServer server;
     private ArrayList<Participant> players;
-    private static final int NB_PLAYERS = 3;
+    private static final int NB_PLAYERS = 4;
     private int nbPlayersPlayed = 0;
     private int turnNb = 0;
 
@@ -74,7 +74,7 @@ public class Server {
                     nbPlayersPlayed++;
                 }
 
-                if (nbPlayersPlayed == 3 && turnNb < 2) {
+                if (nbPlayersPlayed == 4 && turnNb < 6) {
                     newTurn();
                 }
             }
@@ -112,7 +112,7 @@ public class Server {
         wonderlist.shuffle();
         DeckAgeI deckAgeI = new DeckAgeI();
         deckAgeI.shuffle();
-        int cardNumber = 4; // 4 cartes par personne
+        int cardNumber = 7; // 4 cartes par personne
         for (Participant p: players) {
             ArrayList<String> cardsNames = new ArrayList<>();
             for (int i = 0; i < cardNumber; i++) {
