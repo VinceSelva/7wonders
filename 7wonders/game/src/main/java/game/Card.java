@@ -6,7 +6,6 @@ public class Card{
     private String name;
 
     private RawMaterials ressources[];
-    private ManufacturedGood ressourcesNecess[];
     private Cost cost;
     private int value;
     private int points;
@@ -51,10 +50,10 @@ public class Card{
     }
 
     //Constructeur pour les cartes produits manufacturés
-    public Card(CardType type, String name, ManufacturedGood ressourcesNecess[], int points){
+    public Card(CardType type, String name, Cost cost, int points){
         this(type, name);
-        this.ressources = ressourcesNecess;
-        this.points = points
+        this.cost = cost;
+        this.points = points;
     }
 
     @Override
