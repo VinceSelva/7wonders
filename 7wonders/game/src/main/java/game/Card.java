@@ -5,6 +5,8 @@ public class Card{
     private CardType type;
     private String name;
     private RawMaterials material;
+    private ManufacturedGood good;
+    private Cost cost;
     private int value;
 
     public String getName() {
@@ -19,16 +21,29 @@ public class Card{
 
     public void setValue(int value) { this.value = value; }
 
-    public Card(CardType type, String name, int value){
+    public Card(CardType type, String name) {
         this.type = type;
-        this.name= name;
+        this.name = name;
+    }
+
+    public Card(CardType type, String name, int value){
+        this(type, name);
         this.value = value;
     }
 
     public Card(CardType type, String name, RawMaterials material) {
-        this.type = type;
-        this.name = name;
+        this(type, name);
         this.material = material;
+    }
+
+    public Card(CardType type, String name, ManufacturedGood good) {
+        this(type, name);
+        this.good = good;
+    }
+
+    public Card(CardType type, String name, RawMaterials material, Cost cost) {
+        this(type, name, material);
+        this.cost = cost;
     }
 
     @Override
