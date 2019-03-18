@@ -5,6 +5,7 @@ public class Card{
     private CardType type;
     private String name;
     private RawMaterials material;
+    private RawMaterials ressources[];
     private int value;
 
     public String getName() {
@@ -29,6 +30,13 @@ public class Card{
         this.type = type;
         this.name = name;
         this.material = material;
+    }
+
+    public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[]){
+        this.type = type;
+        this.name = name;
+        this.value = piece;
+        this.ressources = ressourcesProduites;
     }
 
     @Override
