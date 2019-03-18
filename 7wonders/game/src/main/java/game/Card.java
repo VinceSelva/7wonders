@@ -4,11 +4,12 @@ public class Card{
     
     private CardType type;
     private String name;
-    private RawMaterials material;
+
     private RawMaterials ressources[];
-    private ManufacturedGood good;
+    private ManufacturedGood ressourcesNecess[];
     private Cost cost;
     private int value;
+    private int points;
 
     public String getName() {
         return name;
@@ -27,30 +28,31 @@ public class Card{
         this.name = name;
     }
 
-    public Card(CardType type, String name, int value){
+    public Card(CardType type, String name, int points){
         this(type, name);
-        this.value = value;
+        this.points = points;
     }
 
-    public Card(CardType type, String name, RawMaterials material) {
-        this(type, name);
-        this.material = material;
-    }
-
+    //Constructeur pour les cartes batiments commerciaux 
     public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[]){
-        this.type = type;
-        this.name = name;
+        this(type, name);
         this.value = piece;
         this.ressources = ressourcesProduites;
-
-    public Card(CardType type, String name, ManufacturedGood good){
+    }
+  
+    //Constructeur pour les cartes matières premieres
+    public Card(CardType type, String name, RawMaterials ressourcesProduites[], Cost cost){
         this(type, name);
-        this.good = good;
+        this.ressources = ressourcesProduites;
+        this.cost = cost;
     }
 
-    public Card(CardType type, String name, RawMaterials material, Cost cost) {
-        this(type, name, material);
-        this.cost = cost;
+    //Constructeur pour les cartes produits manufacturés
+    public Card(CardType type, String name, ManufacturedGood ressourcesNecess[], int points){
+        this(type, name);
+        this.ressources = ressourcesNecess;
+        this.points = points
+    }
 
     @Override
     public String toString() {
