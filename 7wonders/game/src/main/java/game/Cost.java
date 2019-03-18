@@ -2,20 +2,31 @@ package game;
 
 public class Cost{
 
-	private RawMaterials resource;
-	private int nb;
+	private RawMaterials[] materials;
+	private ManufacturedGood[] goods;
+	private int coins;
 
-	public Cost(RawMaterials res, int nombre) {
-        	this.resource = res;
-        	this.nb = nombre;
+	public Cost(RawMaterials[] materials, ManufacturedGood[] goods) {
+		this.materials = materials;
+		this.goods = goods;
+		this.coins = 0;
     }
 
-	public RawMaterials getRes() {
-		return resource;
-    }
-	
-	public int getQuant() {
-        	return nb;
-    }
+    public Cost(int coins) {
+		this.materials = null;
+		this.goods = null;
+		this.coins = coins;
+	}
 
+	public RawMaterials[] getMaterialsCost() {
+		return this.materials;
+	}
+
+	public ManufacturedGood[] getGoodsCost() {
+		return this.goods;
+	}
+
+	public int getCoinsCost() {
+		return this.coins;
+	}
 }
