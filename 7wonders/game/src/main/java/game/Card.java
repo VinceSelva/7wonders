@@ -19,6 +19,8 @@ public class Card{
 
     public void setValue(int value) { this.value = value; }
 
+    public CardType getType(){return type;}
+
     public Card(CardType type, String name, int value){
         this.type = type;
         this.name= name;

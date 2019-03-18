@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Participant {
 
     private String name = "";
-    private int score;
+    private int score=0;
 
     private SocketIOClient socket;
     private Wonder wonder;
-    private ArrayList<Card> cards;
+    public ArrayList<Card> cards;
 
 
     public Participant(SocketIOClient socketIOClient) {
@@ -52,7 +52,6 @@ public class Participant {
 
     public void addWonder(Wonder wonder){wonder.add(wonder);}
 
-
     public void addCard(Card card) { cards.add(card); }
 
     public ArrayList<Card> getCards() { return cards; }
@@ -60,4 +59,8 @@ public class Participant {
     public void clearCards() { this.cards = new ArrayList<>(); }
 
     public void removeCard(int i) { if (this.cards.size() > 0) { this.cards.remove(i); } }
+
+    public void addScore(int i){ this.score += i;}
+
+    public int getScore(){ return score;}
 }

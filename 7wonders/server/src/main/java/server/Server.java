@@ -6,11 +6,7 @@ import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
-import game.Card;
-import game.DeckAgeI;
-import game.Participant;
-import game.Wonder;
-import game.WonderList;
+import game.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -168,11 +164,15 @@ public class Server {
         cardsNames.clear();
         for (int i = 0; i < firstPlayerCards.size(); i++) {
             Card card = firstPlayerCards.get(0);
-
             cardsNames.add(card.getName());
         }
         JSONArray cards = cardsToJSON(cardsNames);
         lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
+
+        if (lastPlayer.cards.get(0).getType() == CardType.COMMERCIAL_STRUCTURE) {
+            lastPlayer.addScore(lastPlayer.cards.get(0).getValue());
+        }
+        System.out.println("Server - player: " + lastPlayer.getname() + " score: " + lastPlayer.getScore());
         System.out.println("Server - Sent card " + cards + " to player " + lastPlayer.getname());
         nbPlayersPlayed = 0;
         for (Participant p: players) {
