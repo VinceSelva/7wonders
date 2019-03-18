@@ -5,12 +5,9 @@ public class Card{
     private CardType type;
     private String name;
     private RawMaterials material;
-<<<<<<< HEAD
     private RawMaterials ressources[];
-=======
     private ManufacturedGood good;
     private Cost cost;
->>>>>>> 4b104cea285d9964d577e8f02e072af0cb6804f7
     private int value;
 
     public String getName() {
@@ -40,14 +37,13 @@ public class Card{
         this.material = material;
     }
 
-<<<<<<< HEAD
     public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[]){
         this.type = type;
         this.name = name;
         this.value = piece;
         this.ressources = ressourcesProduites;
-=======
-    public Card(CardType type, String name, ManufacturedGood good) {
+
+    public Card(CardType type, String name, ManufacturedGood good){
         this(type, name);
         this.good = good;
     }
@@ -55,8 +51,6 @@ public class Card{
     public Card(CardType type, String name, RawMaterials material, Cost cost) {
         this(type, name, material);
         this.cost = cost;
->>>>>>> 4b104cea285d9964d577e8f02e072af0cb6804f7
-    }
 
     @Override
     public String toString() {
