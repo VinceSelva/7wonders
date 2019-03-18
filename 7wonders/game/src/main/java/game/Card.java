@@ -5,7 +5,10 @@ public class Card{
     private CardType type;
     private String name;
     private RawMaterials material;
+<<<<<<< HEAD
     private RawMaterials ressources[];
+=======
+>>>>>>> 4b104cea285d9964d577e8f02e072af0cb6804f7
     private int value;
 
     public String getName() {
@@ -20,23 +23,23 @@ public class Card{
 
     public void setValue(int value) { this.value = value; }
 
-    public Card(CardType type, String name, int value){
         this.type = type;
-        this.name= name;
+
         this.value = value;
     }
 
     public Card(CardType type, String name, RawMaterials material) {
-        this.type = type;
-        this.name = name;
         this.material = material;
     }
 
+<<<<<<< HEAD
     public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[]){
         this.type = type;
         this.name = name;
         this.value = piece;
         this.ressources = ressourcesProduites;
+=======
+>>>>>>> 4b104cea285d9964d577e8f02e072af0cb6804f7
     }
 
     @Override
