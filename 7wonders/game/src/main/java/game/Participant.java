@@ -46,12 +46,9 @@ public class Participant {
         this.wonder = wonder;
     }
 
-    public ArrayList<Wonder> getwonder() {
+    public Wonder getwonder() {
         return wonder;
     }
-
-    public void addWonder(Wonder wonder){wonder.add(wonder);}
-
 
     public void addCard(Card card) { cards.add(card); }
 
