@@ -1,4 +1,4 @@
-package game;
+﻿package game;
 
 import java.util.ArrayList;
 import game.Card;
@@ -26,7 +26,7 @@ public class DeckAgeI extends Deck {
 		addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AUTEL", 2));
 		addCard(new Card(CardType.CIVILIAN_STRUCTURE, "THÉÂTRE", 2));
 
-        // Ajout des cartes Bâtiments Commerciaux
+        	// Ajout des cartes Bâtiments Commerciaux
 		addCard(new Card(CardType.COMMERCIAL_STRUCTURE, "TAVERNE",5, new RawMaterials[]{}));
 		addCard(new Card(CardType.COMMERCIAL_STRUCTURE, "COMPTOIR EST",1, new RawMaterials[]{RawMaterials.STONE, RawMaterials.WOOD,RawMaterials.ORE,RawMaterials.BRICK}));
 		addCard(new Card(CardType.COMMERCIAL_STRUCTURE, "COMPTOIR OUEST",1, new RawMaterials[]{RawMaterials.STONE, RawMaterials.WOOD,RawMaterials.ORE,RawMaterials.BRICK}));
