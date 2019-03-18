@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b0804e-df6b-43b5-bfb2-d3e41757679d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Messages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/7wonders/client/target/" />
@@ -50,11 +54,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1470">
               <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+=======
+      <file leaf-file-name="Age.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Age.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+>>>>>>> kizikx
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,11 +83,28 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+=======
+      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+>>>>>>> kizikx
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,11 +112,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2079">
               <caret line="114" column="26" selection-start-line="114" selection-start-column="26" selection-end-line="114" selection-end-column="26" />
+=======
+      <file leaf-file-name="Participant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+>>>>>>> kizikx
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,15 +132,24 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/lanceur/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
               <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+=======
+      <file leaf-file-name="DeckAgeI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="52" />
+>>>>>>> kizikx
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,6 +158,13 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="CardType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/CardType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
+>>>>>>> kizikx
             </state>
           </provider>
         </entry>
@@ -175,6 +237,7 @@
       <find>Client Joueur3 - received card</find>
       <find>System.out.println</find>
       <find>playedCard</find>
+      <find>lastP</find>
     </findStrings>
     <replaceStrings>
       <replace>txt</replace>
@@ -208,12 +271,17 @@
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
-        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" />
+        <option value="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" />
         <option value="$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java" />
+        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" />
+        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" />
         <option value="$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" />
+=======
+>>>>>>> kizikx
       </list>
     </option>
   </component>
@@ -233,8 +301,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
+=======
+>>>>>>> kizikx
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -386,6 +457,12 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> kizikx
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,7 +476,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -505,15 +582,27 @@
       <workItem from="1551855459830" duration="5936000" />
       <workItem from="1551862036083" duration="2899000" />
       <workItem from="1551946578827" duration="1491000" />
+<<<<<<< HEAD
       <workItem from="1552383332340" duration="804000" />
       <workItem from="1552893163471" duration="3925000" />
       <workItem from="1552899144770" duration="56000" />
       <workItem from="1552899399934" duration="45000" />
+=======
+      <workItem from="1552383332340" duration="1191000" />
+      <workItem from="1552394702190" duration="4860000" />
+      <workItem from="1552467536298" duration="11000" />
+      <workItem from="1552467595904" duration="290000" />
+      <workItem from="1552893055864" duration="7495000" />
+>>>>>>> kizikx
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="47219000" />
+=======
+    <option name="totallyTimeSpent" value="56236000" />
+>>>>>>> kizikx
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -522,7 +611,23 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18532526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
+<<<<<<< HEAD
       <window_info id="Designer" order="3" />
+=======
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.12101911" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.16401275" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21243942" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+>>>>>>> kizikx
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
@@ -556,6 +661,45 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/CardType.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/Wonder.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/Score.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/RawMaterials.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/pom.tld" />
+    <entry file="file://$PROJECT_DIR$/7wonders/server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-604">
+          <caret selection-end-line="65" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-421">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/Score.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/EndGame.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/game/Game.java" />
+>>>>>>> kizikx
     <entry file="file://$PROJECT_DIR$/7wonders/game/pom.tld" />
     <entry file="file://$PROJECT_DIR$/7wonders/game/game/Score.java" />
     <entry file="file://$PROJECT_DIR$/7wonders/game/game/RawMaterials.java" />
@@ -574,27 +718,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Game.java" />
-    <entry file="file://$PROJECT_DIR$/7wonders/client/src/test/java/client/ClientTest.java">
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/RawMaterials.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="45">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Messages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/7wonders/server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -603,30 +736,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/client/pom.xml">
+>>>>>>> kizikx
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="48" column="33" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Score.java">
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/ManufacturedGood.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        <state relative-caret-position="105">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Cost.java">
+>>>>>>> kizikx
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
@@ -637,16 +768,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Age.java">
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="155">
+          <caret line="652" selection-start-line="652" selection-end-line="652" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
-    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/7wonders/game/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -654,6 +784,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Cost.java">
+=======
     <entry file="file://$PROJECT_DIR$/7wonders/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -661,6 +794,282 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://JAVA/client.Client">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>client.Client</OriginalElement>
+          <nodes>
+            <node x="" y="">client.Client</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="42.0" y="15.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/client/src/test/java/client/ClientTest.java">
+>>>>>>> kizikx
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java">
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Wonder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/lanceur/pom.xml">
+>>>>>>> kizikx
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/game.Age">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>game.Age</OriginalElement>
+          <nodes>
+            <node x="327.4408234126984" y="1375.0">server.Server</node>
+            <node x="694.6770833333334" y="605.0">game.Deck</node>
+            <node x="90.64583333333337" y="583.0">game.Wonder</node>
+            <node x="835.3922123015874" y="1430.0">client.Client</node>
+            <node x="0.0" y="1002.0">game.WonderList</node>
+            <node x="319.55208333333337" y="329.0">game.Cost</node>
+            <node x="822.0800347222223" y="1068.5">game.DeckAgeI</node>
+            <node x="685.2050347222223" y="0.0">game.CardType</node>
+            <node x="603.5800347222223" y="263.0">game.Card</node>
+            <node x="467.5800347222223" y="881.0">game.Participant</node>
+            <node x="636.8533234126985" y="1697.0">lanceur.Lanceur</node>
+            <node x="357.15295138888894" y="33.0">game.RawMaterials</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="game.DeckAgeI" target="game.Card">
+              <point x="0.0" y="-14.5" />
+              <point x="874.5800347222223" y="841.0" />
+              <point x="943.1770833333334" y="841.0" />
+              <point x="943.1770833333334" y="543.0" />
+              <point x="775.0175347222223" y="543.0" />
+              <point x="65.9375" y="125.0" />
+            </edge>
+            <edge source="server.Server" target="game.DeckAgeI">
+              <point x="114.33333333333337" y="-136.0" />
+              <point x="613.2741567460318" y="1345.0" />
+              <point x="835.2050347222223" y="1345.0" />
+              <point x="-39.375" y="14.5" />
+            </edge>
+            <edge source="game.WonderList" target="game.Wonder">
+              <point x="103.125" y="-81.0" />
+              <point x="240.625" y="861.0" />
+              <point x="220.22916666666674" y="861.0" />
+              <point x="-25.91666666666663" y="114.0" />
+            </edge>
+            <edge source="game.Deck" target="game.Card">
+              <point x="59.5" y="-92.0" />
+              <point x="873.1770833333334" y="553.0" />
+              <point x="748.6425347222223" y="553.0" />
+              <point x="39.5625" y="125.0" />
+            </edge>
+            <edge source="game.Card" target="game.RawMaterials">
+              <point x="-26.375" y="-125.0" />
+              <point x="682.7050347222223" y="223.0" />
+              <point x="461.15295138888894" y="223.0" />
+              <point x="40.0" y="58.5" />
+            </edge>
+            <edge source="game.DeckAgeI" target="game.Deck">
+              <point x="-21.0" y="-14.5" />
+              <point x="853.5800347222223" y="831.0" />
+              <point x="873.1770833333334" y="831.0" />
+              <point x="59.5" y="92.0" />
+            </edge>
+            <edge source="game.Card" target="game.CardType">
+              <point x="79.125" y="-125.0" />
+              <point x="0.0" y="91.5" />
+            </edge>
+            <edge source="server.Server" target="game.Participant">
+              <point x="38.111111111111086" y="-136.0" />
+              <point x="537.0519345238095" y="1355.0" />
+              <point x="547.9800347222223" y="1355.0" />
+              <point x="-53.60000000000002" y="202.0" />
+            </edge>
+            <edge source="client.Client" target="game.Card">
+              <point x="79.60000000000002" y="-81.0" />
+              <point x="1014.4922123015874" y="1355.0" />
+              <point x="1067.192361111111" y="1355.0" />
+              <point x="1067.192361111111" y="533.0" />
+              <point x="801.3925347222223" y="533.0" />
+              <point x="92.3125" y="125.0" />
+            </edge>
+            <edge source="game.Participant" target="game.Card">
+              <point x="100.5" y="-202.0" />
+              <point x="702.0800347222223" y="861.0" />
+              <point x="674.0800347222223" y="861.0" />
+              <point x="674.0800347222223" y="563.0" />
+              <point x="695.8925347222223" y="563.0" />
+              <point x="-13.1875" y="125.0" />
+            </edge>
+            <edge source="game.Wonder" target="game.Card">
+              <point x="103.66666666666663" y="-114.0" />
+              <point x="349.8125" y="553.0" />
+              <point x="616.7675347222223" y="553.0" />
+              <point x="-92.3125" y="125.0" />
+            </edge>
+            <edge source="game.Cost" target="game.RawMaterials">
+              <point x="51.5" y="-59.0" />
+              <point x="474.05208333333337" y="243.0" />
+              <point x="429.15295138888894" y="243.0" />
+              <point x="8.0" y="58.5" />
+            </edge>
+            <edge source="client.Client" target="game.DeckAgeI">
+              <point x="0.0" y="-81.0" />
+              <point x="934.8922123015874" y="1315.0" />
+              <point x="887.7050347222223" y="1315.0" />
+              <point x="13.125" y="14.5" />
+            </edge>
+            <edge source="lanceur.Lanceur" target="server.Server">
+              <point x="-23.0" y="-25.5" />
+              <point x="705.8533234126985" y="1667.0" />
+              <point x="584.6908234126984" y="1667.0" />
+              <point x="85.75" y="136.0" />
+            </edge>
+            <edge source="game.DeckAgeI" target="game.CardType">
+              <point x="42.00000000000003" y="-14.5" />
+              <point x="916.5800347222223" y="861.0" />
+              <point x="1017.2672123015874" y="861.0" />
+              <point x="1017.2672123015874" y="203.0" />
+              <point x="856.8717013888889" y="203.0" />
+              <point x="68.66666666666669" y="91.5" />
+            </edge>
+            <edge source="lanceur.Lanceur" target="client.Client">
+              <point x="23.0" y="-25.5" />
+              <point x="751.8533234126985" y="1667.0" />
+              <point x="885.1422123015874" y="1667.0" />
+              <point x="-49.75" y="81.0" />
+            </edge>
+            <edge source="game.WonderList" target="game.RawMaterials">
+              <point x="-103.125" y="-81.0" />
+              <point x="34.375" y="861.0" />
+              <point x="74.60957341269841" y="861.0" />
+              <point x="74.60957341269841" y="213.0" />
+              <point x="365.15295138888894" y="213.0" />
+              <point x="-56.0" y="58.5" />
+            </edge>
+            <edge source="game.Participant" target="game.Wonder">
+              <point x="-100.5" y="-202.0" />
+              <point x="501.0800347222223" y="861.0" />
+              <point x="323.89583333333337" y="861.0" />
+              <point x="77.75" y="114.0" />
+            </edge>
+            <edge source="server.Server" target="game.WonderList">
+              <point x="-114.33333333333337" y="-136.0" />
+              <point x="384.60749007936505" y="1345.0" />
+              <point x="206.25" y="1345.0" />
+              <point x="68.75" y="81.0" />
+            </edge>
+            <edge source="client.Client" target="game.Participant">
+              <point x="-79.60000000000002" y="-81.0" />
+              <point x="855.2922123015874" y="1335.0" />
+              <point x="655.1800347222223" y="1335.0" />
+              <point x="53.60000000000002" y="202.0" />
+            </edge>
+            <edge source="server.Server" target="game.Card">
+              <point x="-38.111111111111086" y="-136.0" />
+              <point x="460.82971230158734" y="1355.0" />
+              <point x="457.0800347222223" y="1355.0" />
+              <point x="457.0800347222223" y="563.0" />
+              <point x="643.1425347222223" y="563.0" />
+              <point x="-65.9375" y="125.0" />
+            </edge>
+            <edge source="game.Wonder" target="game.RawMaterials">
+              <point x="0.0" y="-114.0" />
+              <point x="246.14583333333337" y="563.0" />
+              <point x="244.74670138888894" y="563.0" />
+              <point x="244.74670138888894" y="233.0" />
+              <point x="397.15295138888894" y="233.0" />
+              <point x="-24.0" y="58.5" />
+            </edge>
+            <edge source="server.Server" target="game.Wonder">
+              <point x="-76.22222222222223" y="-136.0" />
+              <point x="422.7186011904762" y="1335.0" />
+              <point x="285.5" y="1335.0" />
+              <point x="285.5" y="861.0" />
+              <point x="272.0625" y="861.0" />
+              <point x="25.91666666666663" y="114.0" />
+            </edge>
+            <edge source="game.DeckAgeI" target="game.RawMaterials">
+              <point x="21.00000000000003" y="-14.5" />
+              <point x="895.5800347222223" y="851.0" />
+              <point x="954.1770833333334" y="851.0" />
+              <point x="954.1770833333334" y="213.0" />
+              <point x="477.15295138888894" y="213.0" />
+              <point x="56.0" y="58.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.24878284049055016" x="879.0" y="913.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Main.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Player.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/ArrayList.java" />
+    <entry file="file://$PROJECT_DIR$/7wonders/game/pom.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Messages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/lanceur/src/main/java/lanceur/Lanceur.java">
+>>>>>>> kizikx
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/RawMaterials.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -679,22 +1088,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
           <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="-9">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+>>>>>>> kizikx
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/client/src/main/java/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="126">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+=======
+        <state relative-caret-position="1440">
+          <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+>>>>>>> kizikx
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
@@ -740,6 +1168,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+=======
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/CardType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Age.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/server/src/main/java/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+>>>>>>> kizikx
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
