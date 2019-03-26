@@ -7,12 +7,10 @@ import java.util.ArrayList;
 public class Participant {
 
     private String name = "";
-    private int score;
     private int score=0;
 
     private SocketIOClient socket;
     private Wonder wonder;
-    private ArrayList<Card> cards;
     public ArrayList<Card> cards;
 
 
