@@ -3,9 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/7wonders/7wonders.iml" filepath="$PROJECT_DIR$/7wonders/7wonders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7wonders/7wonders.iml" filepath="$PROJECT_DIR$/7wonders/7wonders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7wonders/client/client.iml" filepath="$PROJECT_DIR$/7wonders/client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/7wonders/client/client.iml" filepath="$PROJECT_DIR$/7wonders/client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/7wonders/game/game.iml" filepath="$PROJECT_DIR$/7wonders/game/game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7wonders/game/game.iml" filepath="$PROJECT_DIR$/7wonders/game/game.iml" />
       <module fileurl="file://$PROJECT_DIR$/7wonders/lanceur/lanceur.iml" filepath="$PROJECT_DIR$/7wonders/lanceur/lanceur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7wonders/lanceur/lanceur.iml" filepath="$PROJECT_DIR$/7wonders/lanceur/lanceur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7wonders/server/server.iml" filepath="$PROJECT_DIR$/7wonders/server/server.iml" />
       <module fileurl="file://$PROJECT_DIR$/7wonders/server/server.iml" filepath="$PROJECT_DIR$/7wonders/server/server.iml" />
     </modules>
   </component>

@@ -10,6 +10,13 @@ public class Card{
     private RawMaterials ressources[];
     private int value;
 
+    public Card(CardType rawMaterial, String fonderie, RawMaterials[] rawMaterials, Cost cost) {
+    }
+
+    public Card(CardType civilianStructure, String temple, Cost cost) {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -21,8 +28,6 @@ public class Card{
     public int getValue() { return value; }
 
     public void setValue(int value) { this.value = value; }
-
-    public CardType getType(){return type;}
 
     public Card(CardType type, String name) {
         this.type = type;

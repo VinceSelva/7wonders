@@ -18,7 +18,10 @@ public class Cost{
 		this.coins = coins;
 	}
 
-	public RawMaterials[] getMaterialsCost() {
+    public Cost(RawMaterials[] rawMaterials, ManufacturedGood[] manufacturedGoods, int i) {
+    }
+
+    public RawMaterials[] getMaterialsCost() {
 		return this.materials;
 	}
 
