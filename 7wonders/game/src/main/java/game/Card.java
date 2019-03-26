@@ -53,6 +53,13 @@ public class Card{
         this.ressources = ressourcesProduites;
     }
 
+    public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[], Cost cost){
+        this(type, name);
+        this.value = piece;
+        this.ressources = ressourcesProduites;
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return name + ", type : " + type + ", valeur : " + value;

@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/7wonders" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/7wonders/client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/7wonders/game" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/7wonders/lanceur" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/7wonders/server" charset="UTF-8" />
   </component>
