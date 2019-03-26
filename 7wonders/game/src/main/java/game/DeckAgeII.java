@@ -2,7 +2,7 @@ package game;
 
 import java.util.ArrayList;
 import game.Card;
-
+/*
 public class DeckAgeII extends Deck {
 
 	public DeckAgeII(){
@@ -22,4 +22,4 @@ public class DeckAgeII extends Deck {
 		addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE", new Cost(new RawMaterials[]{{RawMaterials.ORE, RawMaterials.ORE, RawMaterials.WOOD}, new ManufacturedGood[]{NULL}, 4)));
 		addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TRIBUNAL", new Cost(new RawMaterials[]{RawMaterials.BRICK, RawMaterials.BRICK}, new ManufacturedGood[]{ManufacturedGood.TEXTILES}, 4)));
 	}
-}
+}*/
