@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="460a90a8-aaab-479f-813f-1440b9f78d0a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeII.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/server/target/" />
@@ -25,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9870">
-              <caret line="708" column="10" selection-start-line="708" selection-start-column="10" selection-end-line="708" selection-end-column="10" />
+              <caret line="700" column="10" selection-start-line="700" selection-start-column="10" selection-end-line="700" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -48,13 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeckAgeI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeckAgeI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-160">
+            <state>
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Participant.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -143,6 +150,7 @@
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeII.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java" />
         <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java" />
+        <option value="$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java" />
       </list>
     </option>
   </component>
@@ -413,7 +421,7 @@
       <workItem from="1553605574088" duration="111000" />
       <workItem from="1553605702977" duration="482000" />
       <workItem from="1553609613674" duration="328000" />
-      <workItem from="1553609970005" duration="1070000" />
+      <workItem from="1553609970005" duration="1360000" />
     </task>
     <servers />
   </component>
@@ -450,7 +458,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45349000" />
+    <option name="totallyTimeSpent" value="45639000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,6 +471,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
@@ -504,13 +513,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9870">
-          <caret line="658" column="10" selection-start-line="658" selection-start-column="10" selection-end-line="658" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -598,7 +600,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9870">
-          <caret line="708" column="10" selection-start-line="708" selection-start-column="10" selection-end-line="708" selection-end-column="10" />
+          <caret line="700" column="10" selection-start-line="700" selection-start-column="10" selection-end-line="700" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -625,10 +627,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/DeckAgeI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7wonders/game/src/main/java/game/Participant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
         </state>
       </provider>
     </entry>

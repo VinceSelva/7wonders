@@ -8,6 +8,7 @@ public class Participant {
 
     private String name = "";
     private int score=0;
+    public int piece = 0;
 
     private SocketIOClient socket;
     private Wonder wonder;
