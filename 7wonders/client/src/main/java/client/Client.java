@@ -71,6 +71,7 @@ public class Client {
             connection.on("turn", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
+                    int turnNb = (int)args[0];
                     String cardsString = "";
                     ArrayList<Card> playerCards = player.getCards();
                     int playerCardsSize = player.getCards().size();
@@ -78,14 +79,20 @@ public class Client {
                         cardsString += " | " + c.getName();
                     }
                     cardsString += " |";
-                    System.out.println("Client " + playerName + " - cards :" + cardsString);
-                    if(playerCardsSize>1){
-                        connection.emit("playedCard", playerCards.get(0).getName());
+                    System.out.println("Client " + playerName + "piece:+ " + player.piece + " cards :" + cardsString);
+                    if ((turnNb % 4) == 0 ){
                         player.clearCards();
+                        player.piece+= 1;
                     }
-                    else {
-                        playerCards.remove(0);
-                        System.out.println("fin de la partie");
+                    else{
+                        if(playerCardsSize>1){
+                            connection.emit("playedCard", playerCards.get(0).getName());
+                            player.clearCards();
+                        }
+                        else {
+                            playerCards.remove(0);
+                            System.out.println("fin de la partie");
+                        }
                     }
                 }
             });

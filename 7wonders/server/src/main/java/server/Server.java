@@ -149,7 +149,6 @@ public class Server {
 
             for (int j = 0; j < pCards.size(); j++) {
                 Card card = pCards.get(j);
-             //   cardName = card.getName();
                 cardsNames.add(card.getName());
 
 
@@ -176,7 +175,7 @@ public class Server {
         System.out.println("Server - Sent card " + cards + " to player " + lastPlayer.getname());
         nbPlayersPlayed = 0;
         for (Participant p: players) {
-            p.getSocket().sendEvent("turn");
+            p.getSocket().sendEvent("turn", turnNb);
         }
         turnNb++;
     }
