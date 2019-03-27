@@ -8,6 +8,7 @@ public class Card{
     private Cost cost;
     private RawMaterials material;
     private RawMaterials ressources[];
+    private RawMaterials[] ressourcesNecessaires;
     private int value;
 
 
@@ -16,6 +17,13 @@ public class Card{
         this.name = name;
         this.ressources = ressources;
         this.cost = cost;
+    }
+
+    public Card(CardType type, String name, RawMaterials[] ressourcesNecessaires, int value) {
+        this.type = type;
+        this.name = name;
+        this.ressourcesNecessaires = ressourcesNecessaires;
+        this.value = value;
     }
 
     public String getName() {

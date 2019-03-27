@@ -10,26 +10,32 @@ public class DeckAgeII extends Deck {
     public DeckAgeII(){
         super();
 
-        addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", RawMaterials.STONE));
-        addCard(new Card(CardType.RAW_MATERIAL, "CARRIERE", RawMaterials.STONE));
-        addCard(new Card(CardType.RAW_MATERIAL, "BRIQUETERIE", RawMaterials.STONE));
-        addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", RawMaterials.STONE));
-
-        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AQUEDUC"));
-        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE"));
-        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE"));
-        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TRIBUNAL"));
-
-
 
         //CardType type, String name, RawMaterials ressourcesProduites[], Cost cost
-        /*addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", new RawMaterials[]{WOOD, WOOD}, new Cost(1))); //La carte Scierie produit 2 de bois et coute 1 piece
+        addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", new RawMaterials[]{WOOD, WOOD}, new Cost(1))); //La carte Scierie produit 2 de bois et coute 1 piece
         addCard(new Card(CardType.RAW_MATERIAL, "CARRIERE", new RawMaterials[]{STONE, STONE}, new Cost(1)));
         addCard(new Card(CardType.RAW_MATERIAL, "BRIQUETERIE", new RawMaterials[]{BRICK, BRICK}, new Cost(1)));
         addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", new RawMaterials[]{ORE, ORE},new Cost(1)));
 
 
-        //CardType type, String name, ManufacturedGood ressourcesNecess[], int points
+
+
+        //Type de carte, nom de la carte, cout en ressources, nombre de points rapportés
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AQUEDUC", new RawMaterials[]{STONE,STONE,STONE}, 5));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE", new RawMaterials[]{WOOD,BRICK}, 3));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE", new RawMaterials[]{ORE,ORE,WOOD}, 4));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TRIBUNAL", new RawMaterials[]{BRICK,BRICK}, 4));
+
+
+
+       /* addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", new RawMaterials[]{WOOD, WOOD}, new Cost(2)));
+        addCard(new Card(CardType.RAW_MATERIAL, "CARRIERE", new RawMaterials[]{STONE, STONE}, new Cost(1)));
+        addCard(new Card(CardType.RAW_MATERIAL, "BRIQUETERIE", RawMaterials.STONE));
+        addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", RawMaterials.STONE));
+
+        */
+       
+        /*//CardType type, String name, ManufacturedGood ressourcesNecess[], int points
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AQUEDUC", new Cost(new RawMaterials[]{STONE, STONE, STONE}, null, 5))); //La carte Aqueduc coute 3 de pierres et rapporte 5 pts
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE", new Cost(new RawMaterials[]{WOOD, BRICK, }, new ManufacturedGood[]{ManufacturedGood.GLASS}, 3)));
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE", new Cost(new RawMaterials[]{ORE, ORE, WOOD}, null, 4)));
