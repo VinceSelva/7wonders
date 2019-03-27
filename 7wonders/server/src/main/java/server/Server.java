@@ -106,14 +106,20 @@ public class Server {
     private void startGame() {
         WonderList wonderlist = new WonderList();
         wonderlist.shuffle();
-        DeckAgeI deckAgeI = new DeckAgeI();
-        deckAgeI.shuffle();
+
+        //DeckAgeI deckAgeI = new DeckAgeI();
+        //deckAgeI.shuffle();
+        DeckAgeII deckAgeII = new DeckAgeII();
+        deckAgeII.shuffle();
         int cardNumber = 7; // 4 cartes par personne
         for (Participant p: players) {
             ArrayList<String> cardsNames = new ArrayList<>();
             for (int i = 0; i < cardNumber; i++) {
-                Card randomCard = deckAgeI.getCard(0);
-                deckAgeI.removeCard(0);
+
+                Card randomCard = deckAgeII.getCard(0);
+                deckAgeII.removeCard(0);
+                //Card randomCard = deckAgeI.getCard(0);
+                //deckAgeI.removeCard(0);
 
                 p.addCard(randomCard);
                 cardsNames.add(randomCard.getName());

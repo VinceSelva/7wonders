@@ -10,8 +10,20 @@ public class DeckAgeII extends Deck {
     public DeckAgeII(){
         super();
 
+        addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", RawMaterials.STONE));
+        addCard(new Card(CardType.RAW_MATERIAL, "CARRIERE", RawMaterials.STONE));
+        addCard(new Card(CardType.RAW_MATERIAL, "BRIQUETERIE", RawMaterials.STONE));
+        addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", RawMaterials.STONE));
+
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AQUEDUC"));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE"));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE"));
+        addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TRIBUNAL"));
+
+
+
         //CardType type, String name, RawMaterials ressourcesProduites[], Cost cost
-        addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", new RawMaterials[]{WOOD, WOOD}, new Cost(1))); //La carte Scierie produit 2 de bois et coute 1 piece
+        /*addCard(new Card(CardType.RAW_MATERIAL, "SCIERIE", new RawMaterials[]{WOOD, WOOD}, new Cost(1))); //La carte Scierie produit 2 de bois et coute 1 piece
         addCard(new Card(CardType.RAW_MATERIAL, "CARRIERE", new RawMaterials[]{STONE, STONE}, new Cost(1)));
         addCard(new Card(CardType.RAW_MATERIAL, "BRIQUETERIE", new RawMaterials[]{BRICK, BRICK}, new Cost(1)));
         addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", new RawMaterials[]{ORE, ORE},new Cost(1)));
@@ -22,5 +34,6 @@ public class DeckAgeII extends Deck {
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE", new Cost(new RawMaterials[]{WOOD, BRICK, }, new ManufacturedGood[]{ManufacturedGood.GLASS}, 3)));
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "STATUE", new Cost(new RawMaterials[]{ORE, ORE, WOOD}, null, 4)));
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TRIBUNAL", new Cost(new RawMaterials[]{BRICK, BRICK}, new ManufacturedGood[]{ManufacturedGood.TEXTILES}, 4)));
+*/
     }
 }
