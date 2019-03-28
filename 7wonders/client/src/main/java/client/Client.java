@@ -90,7 +90,7 @@ public class Client {
                             player.clearCards();
                         }
                         else {
-                            playerCards.remove(0);
+                            playerCards.clear();
                             System.out.println("fin de la partie");
                         }
                     }
