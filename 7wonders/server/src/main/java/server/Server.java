@@ -131,7 +131,7 @@ public class Server {
 
         System.out.println("Server - Sending turn event --------------------------------------------------");
         for (Participant p: players) {
-            p.getSocket().sendEvent("turn");
+            p.getSocket().sendEvent("turn", turnNb);
         }
         turnNb++;
     }
