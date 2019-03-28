@@ -19,11 +19,16 @@ public class Deck {
     }
 
     public Card getCard(int i) {
-        return cards.get(i);
+        if (cards.size() > 0) {
+            return cards.get(i);
+        }
+        return null;
     }
 
     public void removeCard(int i) {
-        cards.remove(i);
+        if (cards.size() > 0) {
+            cards.remove(i);
+        }
     }
 
     public ArrayList<Card> getCards() { return cards; }
