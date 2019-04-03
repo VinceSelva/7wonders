@@ -34,7 +34,7 @@ public class DeckAgeII extends Deck {
         addCard(new Card(CardType.RAW_MATERIAL, "FONDERIE", RawMaterials.STONE));
 
         */
-       
+
         /*//CardType type, String name, ManufacturedGood ressourcesNecess[], int points
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "AQUEDUC", new Cost(new RawMaterials[]{STONE, STONE, STONE}, null, 5))); //La carte Aqueduc coute 3 de pierres et rapporte 5 pts
         addCard(new Card(CardType.CIVILIAN_STRUCTURE, "TEMPLE", new Cost(new RawMaterials[]{WOOD, BRICK, }, new ManufacturedGood[]{ManufacturedGood.GLASS}, 3)));
