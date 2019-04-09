@@ -3,65 +3,175 @@ package game;
 import com.corundumstudio.socketio.SocketIOClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Participant {
-
-    private String name = "";
-    private int score=0;
-    public int piece = 0;
-
     private SocketIOClient socket;
-    private Wonder wonder;
-    public ArrayList<Card> cards;
+    private String name;
 
+    private Wonder wonder;
+    private ArrayList<Card> buildings;
+    private ArrayList<Card> hand;
+    private int coins;
+    private int score;
 
     public Participant(SocketIOClient socketIOClient) {
-        setSocket(socketIOClient);
-        cards = new ArrayList<>();
+        socket = socketIOClient;
+        name = "";
+
+        wonder = null;
+        buildings = new ArrayList<>();
+        hand = new ArrayList<>();
+        coins = 0;
+        score = 0;
     }
 
-    public void setSocket(SocketIOClient socket) {
-        this.socket = socket;
+    public HashMap<String, Integer> getProducedResources() {
+        HashMap<String, Integer> producedResources = new HashMap<>();
+
+        // Ajoute à la liste des ressources produites par le joueur la ressource produite par la merveille
+        producedResources.merge(wonder.getWonderResource().toString(), 1, Integer::sum);
+
+        // Parcourt toutes les constructions afin de compte les ressources produites par les constructions
+        for (Card card: buildings) {
+            Iterator iterator = card.getProducedResources().entrySet().iterator();
+
+            while (iterator.hasNext()) {
+                Map.Entry<String, Integer> pair = (Map.Entry)iterator.next();
+
+                // Si la ressource produite n'est pas une pièce, on l'ajoute à la liste des ressources produites
+                if (!pair.getKey().equals("COIN")) {
+                    producedResources.merge(pair.getKey(), pair.getValue(), Integer::sum);
+                }
+
+                iterator.remove();
+            }
+        }
+
+        return producedResources;
+    }
+
+    public boolean canBuild(Card card) {
+        HashMap<String, Integer> producedResources = getProducedResources();
+
+        Cost cardCost = card.getCost();
+        HashMap<String, Integer> neededResources = cardCost.getResourcesCost();
+        int neededCoins = cardCost.getCoinsCost();
+
+        Iterator iterator = neededResources.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> pair = (Map.Entry)iterator.next();
+
+            Integer currentProduced = producedResources.get(pair.getKey());
+
+            if (currentProduced != null) {
+                if (currentProduced < pair.getValue()) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+
+            iterator.remove();
+        }
+
+        if (coins > neededCoins) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void build(Card card) {
+        int neededCoins = card.getCost().getCoinsCost();
+
+        coins -= neededCoins;
+
+        buildings.add(card);
+        hand.remove(card);
+    }
+
+    public void discard(Card card) {
+        coins += 3;
+
+        hand.remove(card);
+    }
+
+    public void play(Card card) {
+        if (canBuild(card)) {
+            build(card);
+        } else {
+            discard(card);
+        }
     }
 
     public SocketIOClient getSocket() {
         return socket;
     }
 
-
-
-    public String toString() {
-        return "[Joueur "+getname()+" : "+getSocket().getRemoteAddress()+"]";
-    }
-
-
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void setwonder(Wonder wonder) {
+    public void setWonder(Wonder wonder) {
         this.wonder = wonder;
     }
 
-    public Wonder getwonder() {
+    public Wonder getWonder() {
         return wonder;
     }
 
-    public void addWonder(Wonder wonder){wonder.add(wonder);}
+    public void setBuildings(ArrayList<Card> buildings) {
+        this.buildings = buildings;
+    }
 
-    public void addCard(Card card) { cards.add(card); }
+    public void addBuilding(Card card) {
+        buildings.add(card);
+    }
 
-    public ArrayList<Card> getCards() { return cards; }
+    public ArrayList<Card> getBuildings() {
+        return buildings;
+    }
 
-    public void clearCards() { this.cards = new ArrayList<>(); }
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
+    }
 
-    public void removeCard(int i) { if (this.cards.size() > 0) { this.cards.remove(i); } }
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 
-    public void addScore(int i){ this.score += i;}
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
 
-    public int getScore(){ return score;}
+    public void addCoins(int coins) {
+        this.coins += coins;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String toString() {
+        return "[Player " + name + " : " + getSocket().getRemoteAddress() + "]";
+    }
 }

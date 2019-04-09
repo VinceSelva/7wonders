@@ -39,7 +39,6 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     String pName = (String)args[0];
-                    System.out.println("Client " + playerName + " - Player " + pName + " connected");
                 }
             });
 
@@ -47,7 +46,6 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     String wonderName = (String)args[0];
-                    System.out.println("Client " + playerName + " - received wonder " + wonderName);
                 }
             });
 
@@ -56,7 +54,6 @@ public class Client {
                 public void call(Object... args) {
                     try {
                         JSONArray cards = new JSONArray((String)args[0]);
-                        System.out.println("Client " + playerName + " - received card " + cards);
                         for (int i = 0; i < cards.length(); i++) {
                             player.addCard(deckAgeI.nameToCard(cards.getString(i)));
                         }
@@ -72,14 +69,8 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     int turnNb = (int)args[0];
-                    String cardsString = "";
                     ArrayList<Card> playerCards = player.getCards();
                     int playerCardsSize = player.getCards().size();
-                    for (Card c: playerCards) {
-                        cardsString += " | " + c.getName();
-                    }
-                    cardsString += " |";
-                    System.out.println("Client " + playerName + "piece:+ " + player.piece + " cards :" + cardsString);
                     if ((turnNb % 4) == 0 ){
                         player.clearCards();
                         player.piece+= 1;
@@ -96,16 +87,6 @@ public class Client {
                     }
                 }
             });
-
-            connection.on("fin de la partie", new Emitter.Listener() {
-                @Override
-                public void call(Object... args) {
-
-                   
-                }
-            });
-
-
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

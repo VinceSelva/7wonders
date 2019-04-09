@@ -1,32 +1,31 @@
 package game;
 
-public class Cost{
+import java.util.HashMap;
 
-	private RawMaterials[] materials;
-	private ManufacturedGood[] goods;
-	private int coins;
+public class Cost {
+	private HashMap<String, Integer> resourcesCost;
+	private int coinsCost;
 
-	public Cost(RawMaterials[] materials, ManufacturedGood[] goods) {
-		this.materials = materials;
-		this.goods = goods;
-		this.coins = 0;
+	public Cost() {
+		this.resourcesCost = new HashMap<>();
+		this.coinsCost = 0;
+	}
+
+	public Cost(HashMap<String, Integer> resourcesCost) {
+		this.resourcesCost = resourcesCost;
+		this.coinsCost = 0;
     }
 
     public Cost(int coins) {
-		this.materials = null;
-		this.goods = null;
-		this.coins = coins;
+		this.resourcesCost = new HashMap<>();
+		this.coinsCost = coins;
 	}
 
-	public RawMaterials[] getMaterialsCost() {
-		return this.materials;
-	}
-
-	public ManufacturedGood[] getGoodsCost() {
-		return this.goods;
+	public HashMap<String, Integer> getResourcesCost() {
+		return resourcesCost;
 	}
 
 	public int getCoinsCost() {
-		return this.coins;
+		return coinsCost;
 	}
 }

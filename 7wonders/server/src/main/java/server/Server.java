@@ -197,7 +197,5 @@ public class Server {
         server.start();
 
         System.out.println("Server - Waiting for connection");
-
-        //server.stop();
     }
 }

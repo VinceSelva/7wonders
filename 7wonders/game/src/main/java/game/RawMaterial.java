@@ -1,9 +1,8 @@
 package game;
 
-
-public enum RawMaterials{
+public enum RawMaterial {
 	WOOD,
 	STONE,
 	BRICK,
-	ORE	
+	ORE
 }
