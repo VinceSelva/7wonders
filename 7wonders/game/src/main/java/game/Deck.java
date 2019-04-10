@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class Deck {
     private ArrayList<Card> cards;
 
@@ -18,6 +19,10 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
+    /**
+     * @param i qui represente l'index de la carte
+     * @return cards.get(1) retourne la carte a recuperer avec son index i
+     */
     public Card getCard(int i) {
         if (cards.size() > 0) {
             return cards.get(i);
@@ -25,14 +30,27 @@ public class Deck {
         return null;
     }
 
+    /**
+     * @param i qui represente l'index de la carte
+     * @return cards.remove(1) retourne la carte a enlever avec son index i
+     */
     public void removeCard(int i) {
         if (cards.size() > 0) {
             cards.remove(i);
         }
     }
 
-    public ArrayList<Card> getCards() { return cards; }
+    /**
+     * @return cards retourne les cartes de l'arraylist
+     *
+     */
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 
+    /**
+     * @param name qui represente le nom de la carte
+     */
     public Card nameToCard(String name) {
         Card card = null;
 
