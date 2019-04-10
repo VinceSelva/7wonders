@@ -3,42 +3,36 @@ package client;
 import game.Card;
 import game.DeckAgeI;
 import game.Participant;
+import game.Wonder;
+import game.WonderList;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class Client {
     private Socket connection;
-    private static String playerName;
+    private String playerName;
+    int turnNb = 0;
+    boolean ready = false;
     private Participant player = new Participant(null);
+    private WonderList wonders = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
-
+    
     public Client(String serverURL, String playerName) {
         try {
             connection = IO.socket(serverURL);
-
-            System.out.println("Client - Connecting");
 
             connection.on("connect", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
                     connection.emit("identification", playerName);
                     setName(playerName);
-                }
-            });
 
-            connection.on("playerConnected", new Emitter.Listener() {
-                @Override
-                public void call(Object... args) {
-                    String pName = (String)args[0];
+                    System.out.println("Connected to server with username " + playerName);
                 }
             });
 
@@ -46,6 +40,14 @@ public class Client {
                 @Override
                 public void call(Object... args) {
                     String wonderName = (String)args[0];
+                    Wonder wonder = wonders.nameToWonder(wonderName);
+
+                    player.setWonder(wonder);
+
+                    // Signale au serveur que le joueur est prêt si il a des cartes et qu'il vient de recevoir une merveille
+                    if (player.getHand().size() > 0 && ready == false) {
+                        connection.emit("ready", "");
+                    }
                 }
             });
 
@@ -54,37 +56,30 @@ public class Client {
                 public void call(Object... args) {
                     try {
                         JSONArray cards = new JSONArray((String)args[0]);
+                        ArrayList<Card> cardList = new ArrayList<>();
+
                         for (int i = 0; i < cards.length(); i++) {
-                            player.addCard(deckAgeI.nameToCard(cards.getString(i)));
+                            Card card = deckAgeI.nameToCard(cards.getString(i));
+                            cardList.add(card);
                         }
+
+                        player.setHand(cardList);
                     } catch (Exception e) {
                         System.out.println("Client - JSON error - " + e.getMessage());
                     }
 
-
+                    // Signale au serveur que le joueur est prêt si il a une merveille et qu'il vient de recevoir les cartes
+                    if (player.getWonder() != null && ready == false) {
+                        connection.emit("ready", "");
+                    }
                 }
             });
 
             connection.on("turn", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    int turnNb = (int)args[0];
-                    ArrayList<Card> playerCards = player.getCards();
-                    int playerCardsSize = player.getCards().size();
-                    if ((turnNb % 4) == 0 ){
-                        player.clearCards();
-                        player.piece+= 1;
-                    }
-                    else{
-                        if(playerCardsSize>1){
-                            connection.emit("playedCard", playerCards.get(0).getName());
-                            player.clearCards();
-                        }
-                        else {
-                            playerCards.clear();
-                            System.out.println("fin de la partie");
-                        }
-                    }
+                    play();
+                    turnNb++;
                 }
             });
         } catch (URISyntaxException e) {
@@ -92,10 +87,28 @@ public class Client {
         }
     }
 
-    private void setName(String name) { this.playerName = name; }
+    private void play() {
+        Card card = player.getHand().get(0);
+
+        if (player.canBuild(card)) {
+            player.build(card);
+            connection.emit("");
+        } else {
+            player.discard(card);
+        }
+
+        connection.emit("playedCard", card.getName());
+    }
+
+    public String getName() {
+        return playerName;
+    }
+
+    public void setName(String name) {
+        playerName = name;
+    }
 
     public void connect() {
         connection.connect();
     }
-
 }
