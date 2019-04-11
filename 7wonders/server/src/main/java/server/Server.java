@@ -17,9 +17,12 @@ public class Server {
     private SocketIOServer server;
     private ArrayList<Participant> players;
     private static final int NB_PLAYERS = 4;
-    private int nbPlayersPlayed = 0;
+    private static final int CARDS_PER_PLAYER = 7;
     private int turnNb = 0;
-
+    private int nbPlayersPlayed = 0;
+    private int nbPlayersReady = 0;
+    private WonderList wonderList = new WonderList();
+    private DeckAgeI deckAgeI = new DeckAgeI();
 
     public Server(Configuration config) {
         server = new SocketIOServer(config);
@@ -32,7 +35,7 @@ public class Server {
             public void onConnect(SocketIOClient socketIOClient) {
                 System.out.println("Server - New client connected : " + socketIOClient.getRemoteAddress());
 
-                // 3 joueurs requis
+                // Tant que tous les joueurs ne se sont pas connectés.
                 if (players.size() < NB_PLAYERS) {
                     Participant p = new Participant(socketIOClient);
                     players.add(p);
@@ -42,162 +45,219 @@ public class Server {
 
         server.addEventListener("identification", String.class, new DataListener<String>() {
             @Override
-            public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
+            public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
                 Participant p = findPlayer(client);
 
                 if (p != null) {
-                    p.setname(data);
+                    p.setName(data);
 
-                    for (Participant pl: players) {
-                        pl.getSocket().sendEvent("playerConnected", p.getname());
-                    }
-
-                    if (allIdentified()) {
-                        startGame();
+                    if (players.size() == NB_PLAYERS) {
+                        if (allIdentified()) {
+                            startGame();
+                        }
                     }
                 }
             }
         });
 
-        server.addEventListener("playedCard", String.class, new DataListener<String>() {
+        server.addEventListener("ready", String.class, new DataListener<String>() {
             @Override
-            public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
-                Participant p = findPlayer(client);
+            public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
+                nbPlayersReady++;
 
-                if (p != null) {
-                    System.out.println("Server - " + p.getname() + " played " + data);
-                    p.removeCard(0);
-                    nbPlayersPlayed++;
-                }
+                if (nbPlayersReady == NB_PLAYERS) {
+                    System.out.println("Server - Sending turn event");
 
-                if (nbPlayersPlayed == 4 && turnNb < 6) {
-                    newTurn();
+                    for (Participant p: players) {
+                        p.getSocket().sendEvent("turn");
+                    }
+
+                    turnNb++;
                 }
             }
         });
-    }
 
-    private Participant findPlayer(SocketIOClient client) {
-        Participant p = null;
+        server.addEventListener("build", String.class, new DataListener<String>() {
+            @Override
+            public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
+                Participant player = findPlayer(client);
+                Card card = deckAgeI.nameToCard(data);
 
-        for (Participant pl: players) {
-            if (pl.getSocket().equals(client)) {
-                p = pl;
-                break;
+                if (player != null) {
+                    player.build(card);
+                    nbPlayersPlayed++;
+                    System.out.println("Server - " + player.getName() + " built " + data);
+                }
+
+                if (nbPlayersPlayed == NB_PLAYERS && turnNb < 6) {
+                    newTurn();
+                } else if (nbPlayersPlayed == NB_PLAYERS && turnNb == 6) {
+                    endGame();
+                }
             }
-        }
+        });
 
-        return p;
-    }
+        server.addEventListener("discard", String.class, new DataListener<String>() {
+            @Override
+            public void onData(SocketIOClient client, String data, AckRequest askSender)  throws Exception {
+                Participant player = findPlayer(client);
+                Card card = deckAgeI.nameToCard(data);
 
-    private boolean allIdentified() {
-        boolean result = true;
+                if (player != null) {
+                    player.discard(card);
+                    nbPlayersPlayed++;
+                    System.out.println("Server - " + player.getName() + " discarded " + data);
+                }
 
-        for (Participant p: players) {
-            if (p.getname() == null || p.getname() == "") {
-                result = false;
-                break;
+                if (nbPlayersPlayed == NB_PLAYERS && turnNb < 6) {
+                    newTurn();
+                } else if (nbPlayersPlayed == NB_PLAYERS && turnNb == 6) {
+                    endGame();
+                }
             }
-        }
-
-        return result;
-    }
-
-    private void startGame() {
-        WonderList wonderlist = new WonderList();
-        wonderlist.shuffle();
-        DeckAgeI deckAgeI = new DeckAgeI();
-        deckAgeI.shuffle();
-        int cardNumber = 7; // 4 cartes par personne
-        for (Participant p: players) {
-            ArrayList<String> cardsNames = new ArrayList<>();
-            for (int i = 0; i < cardNumber; i++) {
-                Card randomCard = deckAgeI.getCard(0);
-                deckAgeI.removeCard(0);
-
-                p.addCard(randomCard);
-                cardsNames.add(randomCard.getName());
-            }
-            JSONArray cards = cardsToJSON(cardsNames);
-            p.getSocket().sendEvent("playerCards", cards.toString());
-            System.out.println("Server - Sent cards " + cards + " to player " + p.getname());
-            Wonder randomWonder = wonderlist.getWonder(0);
-            wonderlist.removeWonder(0);
-            p.addWonder(randomWonder);
-            String wonderName = randomWonder.getName();
-            p.getSocket().sendEvent("playerWonder",wonderName);
-            System.out.println("Server - Sent wonder " + wonderName + " to player " + p.getname());
-        }
-
-        System.out.println("Server - Sending turn event --------------------------------------------------");
-        for (Participant p: players) {
-            p.getSocket().sendEvent("turn", turnNb);
-        }
-        turnNb++;
-    }
-
-    private void newTurn() {
-        ArrayList<Card> firstPlayerCards = players.get(0).getCards();
-        ArrayList<String> cardsNames = new ArrayList<>();
-
-        for (int i = 1; i < NB_PLAYERS; i++) {
-            Participant p = players.get(i);
-            Participant prevP = players.get(i-1);
-            ArrayList<Card> pCards = p.getCards();
-            prevP.clearCards();
-
-
-            for (int j = 0; j < pCards.size(); j++) {
-                Card card = pCards.get(j);
-                cardsNames.add(card.getName());
-
-
-            }
-            JSONArray cards = cardsToJSON(cardsNames);
-            prevP.getSocket().sendEvent("playerCards", cards.toString());
-            //prevP.getSocket().sendEvent("playerCards", cardName);
-            System.out.println("Server - Sent card " + cardsNames + " to player " + prevP.getname());
-        }
-
-        Participant lastPlayer = players.get(NB_PLAYERS - 1);
-        cardsNames.clear();
-        for (int i = 0; i < firstPlayerCards.size(); i++) {
-            Card card = firstPlayerCards.get(0);
-            cardsNames.add(card.getName());
-        }
-        JSONArray cards = cardsToJSON(cardsNames);
-        lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
-
-        if (lastPlayer.cards.get(0).getType() == CardType.COMMERCIAL_STRUCTURE) {
-            lastPlayer.addScore(lastPlayer.cards.get(0).getValue());
-        }
-        System.out.println("Server - player: " + lastPlayer.getname() + " score: " + lastPlayer.getScore());
-        System.out.println("Server - Sent card " + cards + " to player " + lastPlayer.getname());
-        nbPlayersPlayed = 0;
-        for (Participant p: players) {
-            p.getSocket().sendEvent("turn", turnNb);
-        }
-        turnNb++;
-    }
-
-    private JSONArray cardsToJSON(ArrayList<String> cards) {
-        JSONArray cardsJ = new JSONArray();
-        try {
-            for (int i=0;i<cards.size();i++){
-                cardsJ.put(cards.get(i));
-            }
-        }
-        catch (Exception e){
-            System.out.println("Server - JSON error - " + e.getMessage());
-        }
-        return cardsJ;
+        });
     }
 
     public void start() {
         server.start();
 
         System.out.println("Server - Waiting for connection");
+    }
 
-        //server.stop();
+    private void startGame() {
+        System.out.println("Server - Starting game");
+
+        wonderList.shuffle();
+        deckAgeI.shuffle();
+
+        int cardIndex = 0;
+        int wonderIndex = 0;
+        for (Participant p: players) {
+            ArrayList<String> cardsNames = new ArrayList<>();
+            ArrayList<Card> playerHand = new ArrayList<>();
+
+            for (int i = 0; i < CARDS_PER_PLAYER; i++) {
+                Card card = deckAgeI.getCard(cardIndex);
+                cardIndex++;
+
+                playerHand.add(card);
+                cardsNames.add(card.getName());
+            }
+            p.setHand(playerHand);
+
+            JSONArray cards = cardsToJSON(cardsNames);
+            p.getSocket().sendEvent("playerCards", cards.toString());
+
+            System.out.println("Server - Sent cards " + cards + " to player " + p.getName());
+
+            Wonder wonder = wonderList.getWonder(wonderIndex);
+            wonderIndex++;
+            
+            p.setWonder(wonder);
+            String wonderName = wonder.getName();
+            p.getSocket().sendEvent("playerWonder", wonderName);
+
+            System.out.println("Server - Sent wonder " + wonderName + " to player " + p.getName());
+        }
+    }
+
+    private void newTurn() {
+        System.out.println("Server - Starting new turn");
+
+        ArrayList<Card> firstPlayerCards = players.get(0).getHand();
+        ArrayList<String> cardsNames = new ArrayList<>();
+
+        for (int i = 1; i < NB_PLAYERS; i++) {
+            Participant p = players.get(i);
+            Participant prevP = players.get(i - 1);
+            ArrayList<Card> pCards = p.getHand();
+            prevP.setHand(pCards);
+
+            for (int j = 0; j < pCards.size(); j++) {
+                Card card = pCards.get(j);
+                cardsNames.add(card.getName());
+            }
+
+            JSONArray cards = cardsToJSON(cardsNames);
+            prevP.getSocket().sendEvent("playerCards", cards.toString());
+
+            System.out.println("Server - Sent cards " + cards + " to player " + prevP.getName());
+
+            cardsNames.clear();
+        }
+
+        Participant lastPlayer = players.get(NB_PLAYERS - 1);
+        cardsNames.clear();
+        lastPlayer.setHand(firstPlayerCards);
+        for (int i = 0; i < firstPlayerCards.size(); i++) {
+            Card card = firstPlayerCards.get(i);
+            cardsNames.add(card.getName());
+        }
+        JSONArray cards = cardsToJSON(cardsNames);
+        lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
+
+        System.out.println("Server - Sent cards " + cards + " to player " + lastPlayer.getName());
+
+        nbPlayersPlayed = 0;
+        for (Participant p: players) {
+            p.getSocket().sendEvent("turn");
+        }
+        turnNb++;
+    }
+
+    private void endGame() {
+        System.out.println("Server - Game end");
+
+        int bestScore = 0;
+        Participant bestPlayer = null;
+        for (Participant p: players) {
+            p.computeScore();
+
+            System.out.println("Server - " + p.getName() + " scored " + p.getScore());
+
+            if (p.getScore() > bestScore) {
+                bestScore = p.getScore();
+                bestPlayer = p;
+            }
+        }
+
+        System.out.println("Server - " + bestPlayer.getName() + " won the game !");
+    }
+
+    private Participant findPlayer(SocketIOClient client) {
+        Participant player = null;
+
+        for (Participant p: players) {
+            if (p.getSocket().equals(client)) {
+                player = p;
+                break;
+            }
+        }
+
+        return player;
+    }
+
+    private boolean allIdentified() {
+        for (int i = 0; i < NB_PLAYERS; i++) {
+            if (players.get(i).getName().equals("")) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private JSONArray cardsToJSON(ArrayList<String> cards) {
+        JSONArray cardsJ = new JSONArray();
+
+        try {
+            for (int i=0; i<cards.size(); i++) {
+                cardsJ.put(cards.get(i));
+            }
+        } catch (Exception e) {
+            System.out.println("Server - JSON error - " + e.getMessage());
+        }
+
+        return cardsJ;
     }
 }

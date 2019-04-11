@@ -1,7 +1,6 @@
 package game;
 
-
-public enum ManufacturedGood{
+public enum ManufacturedGood {
 	GLASS,
 	PAPYRUS,
 	TEXTILES

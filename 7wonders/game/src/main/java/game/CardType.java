@@ -1,7 +1,6 @@
 package game;
 
-
-public enum CardType{
+public enum CardType {
 	RAW_MATERIAL,
     MANUFACTURED_GOOD,
     CIVILIAN_STRUCTURE,

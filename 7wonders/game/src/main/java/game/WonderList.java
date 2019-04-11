@@ -8,13 +8,10 @@ public class WonderList {
 
     public WonderList() {
         wonders = new ArrayList<>();
-        addWonder(new Wonder("GIZAH", RawMaterials.STONE)) ;
-        addWonder(new Wonder("BABYLON", RawMaterials.BRICK));
-        addWonder(new Wonder("OLYMPIA", RawMaterials.WOOD));
-        addWonder(new Wonder("RHODOS", RawMaterials.ORE));
-        //addWonder(new Wonder("EPHESOS", RawMaterials.BRICK));
-        //addWonder(new Wonder("ALEXANDRIA", RawMaterials.BRICK));
-        //addWonder(new Wonder("HALIKARNASSOS", RawMaterials.BRICK));
+        addWonder(new Wonder("GIZAH", RawMaterial.STONE)) ;
+        addWonder(new Wonder("BABYLON", RawMaterial.BRICK));
+        addWonder(new Wonder("OLYMPIA", RawMaterial.WOOD));
+        addWonder(new Wonder("RHODOS", RawMaterial.ORE));
     }
 
     public void addWonder(Wonder wonder) {
@@ -33,7 +30,20 @@ public class WonderList {
         wonders.remove(i);
     }
 
-    public ArrayList<Wonder> getwonders() { return wonders; }
+    public ArrayList<Wonder> getwonders() {
+        return wonders;
+    }
 
-    //addWonder(new Wonder("GIZEH", RawMaterials.WOOD)) ;
+    public Wonder nameToWonder(String name) {
+        Wonder wonder = null;
+
+        for (Wonder w: wonders) {
+            if (w.getName().equals(name)) {
+                wonder = w;
+                break;
+            }
+        }
+
+        return wonder;
+    }
 }

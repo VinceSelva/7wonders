@@ -1,90 +1,110 @@
 package game;
 
-public class Card{
+import java.util.HashMap;
 
+public class Card {
     private CardType type;
     private String name;
-    private ManufacturedGood good;
-    private Cost cost;
-    private RawMaterials material;
-    private RawMaterials ressources[];
-    private int value;
-    private int pieces;
+    private HashMap<String, Integer> producedResources = new HashMap<>();
+    private Cost cost = new Cost();
+    private int points = 0;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public int getValue() { return value; }
-
-    public void setValue(int value) { this.value = value; }
-
-    public int getPieces() { return pieces; }
-
-    public void setPieces(int pieces) { this.pieces = pieces; }
-
-    public CardType getType(){return type;}
-
+    /**
+     * @param type qui represente le type de carte
+     * @param name qui represente le nom de la carte
+     */
     public Card(CardType type, String name) {
         this.type = type;
         this.name = name;
     }
 
-    // type | nom | points de victoire rapportés
-    public Card(CardType type, String name, int value) {
+    /**
+     * @param type qui represente le type de carte
+     * @param name qui represente le nom de la carte
+     * @param producedResources qui represente les ressources produites
+     */
+    public Card(CardType type, String name, HashMap<String, Integer> producedResources) {
         this(type, name);
-        this.value = value;
+        this.producedResources = producedResources;
     }
 
-    // type | nom | matière première produite
-    public Card(CardType type, String name, RawMaterials material) {
-        this(type, name);
-        this.material = material;
-    }
-
-    // type | nom | produit manufacturé produit
-    public Card(CardType type, String name, ManufacturedGood good) {
-        this(type, name);
-        this.good = good;
-    }
-
-    // type | nom | matière première produite | points de victoire rapportés
-    public Card(CardType type, String name, RawMaterials material, int value) {
-        this(type, name, value);
-        this.material = material;
-    }
-
-    public Card(CardType type, String name, RawMaterials material, Cost cost) {
-        this(type, name, material);
+    /**
+     * @param type qui represente le type de carte
+     * @param name qui represente le nom de la carte
+     * @param producedResources qui represente les ressources produites
+     * @param cost qui represente le cout de la carte pour la posée
+     */
+    public Card(CardType type, String name, HashMap<String, Integer> producedResources, Cost cost) {
+        this(type, name, producedResources);
         this.cost = cost;
     }
 
-    public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[]){
+    /**
+     * @param type qui represente le type de carte
+     * @param name qui represente le nom de la carte
+     * @param points qui represente le nombre de points que la carte rapporte
+     */
+    public Card(CardType type, String name, int points) {
         this(type, name);
-        this.pieces = piece;
-        this.ressources = ressourcesProduites;
+        this.points = points;
     }
 
-    public Card(CardType type, String name, int piece, RawMaterials ressourcesProduites[], Cost cost){
-        this(type, name);
-        this.value = piece;
-        this.ressources = ressourcesProduites;
+    /**
+     * @param type qui represente le type de carte
+     * @param name qui represente le nom de la carte
+     * @param points qui represente le nombre de points que la carte rapporte
+     * @param cost qui represente le cout de la carte pour la posée
+     */
+    public Card(CardType type, String name, int points, Cost cost) {
+        this(type, name, points);
         this.cost = cost;
     }
 
-    @Override
-    public String toString() {
-        return name + ", type : " + type + ", valeur : " + value;
+    /**
+     * @return type retourne le type de la carte
+     */
+    public CardType getType() {
+        return type;
+    }
+
+    /**
+     * @return name retourne le nom de la carte
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return producedResources retourne les ressources produites
+     */
+    public HashMap<String, Integer> getProducedResources() {
+        return producedResources;
+    }
+
+    /**
+     * @return cost retourne le cout de la carte
+     */
+    public Cost getCost() {
+        return cost;
+    }
+
+    /**
+     * @return points retourne le nombre de points que rapporte la carte
+     */
+    public int getPoints() {
+        return points;
     }
 
     public boolean equals(Object o) {
         if ((o != null) && (o instanceof Card)) {
-            return getName().equals(((Card) o).getName());
+            return name.equals(((Card)o).getName());
+        } else {
+            return false;
         }
-        else return false;
+    }
+
+    public String toString() {
+        return "[Card " + name + "]";
     }
 }
