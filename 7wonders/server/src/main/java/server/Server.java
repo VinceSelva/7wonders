@@ -77,20 +77,42 @@ public class Server {
             }
         });
 
-        server.addEventListener("playedCard", String.class, new DataListener<String>() {
+        server.addEventListener("build", String.class, new DataListener<String>() {
             @Override
-            public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
+            public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
                 Participant player = findPlayer(client);
                 Card card = deckAgeI.nameToCard(data);
 
                 if (player != null) {
-                    System.out.println("Server - " + player.getName() + " played " + data);
-                    player.play(card);
+                    player.build(card);
                     nbPlayersPlayed++;
+                    System.out.println("Server - " + player.getName() + " built " + data);
                 }
 
-                if (nbPlayersPlayed == 4 && turnNb < 6) {
-                    //newTurn();
+                if (nbPlayersPlayed == NB_PLAYERS && turnNb < 6) {
+                    newTurn();
+                } else if (nbPlayersPlayed == NB_PLAYERS && turnNb == 6) {
+                    endGame();
+                }
+            }
+        });
+
+        server.addEventListener("discard", String.class, new DataListener<String>() {
+            @Override
+            public void onData(SocketIOClient client, String data, AckRequest askSender)  throws Exception {
+                Participant player = findPlayer(client);
+                Card card = deckAgeI.nameToCard(data);
+
+                if (player != null) {
+                    player.discard(card);
+                    nbPlayersPlayed++;
+                    System.out.println("Server - " + player.getName() + " discarded " + data);
+                }
+
+                if (nbPlayersPlayed == NB_PLAYERS && turnNb < 6) {
+                    newTurn();
+                } else if (nbPlayersPlayed == NB_PLAYERS && turnNb == 6) {
+                    endGame();
                 }
             }
         });
@@ -139,6 +161,69 @@ public class Server {
         }
     }
 
+    private void newTurn() {
+        System.out.println("Server - Starting new turn");
+
+        ArrayList<Card> firstPlayerCards = players.get(0).getHand();
+        ArrayList<String> cardsNames = new ArrayList<>();
+
+        for (int i = 1; i < NB_PLAYERS; i++) {
+            Participant p = players.get(i);
+            Participant prevP = players.get(i - 1);
+            ArrayList<Card> pCards = p.getHand();
+            prevP.setHand(pCards);
+
+            for (int j = 0; j < pCards.size(); j++) {
+                Card card = pCards.get(j);
+                cardsNames.add(card.getName());
+            }
+
+            JSONArray cards = cardsToJSON(cardsNames);
+            prevP.getSocket().sendEvent("playerCards", cards.toString());
+
+            System.out.println("Server - Sent cards " + cards + " to player " + prevP.getName());
+
+            cardsNames.clear();
+        }
+
+        Participant lastPlayer = players.get(NB_PLAYERS - 1);
+        cardsNames.clear();
+        lastPlayer.setHand(firstPlayerCards);
+        for (int i = 0; i < firstPlayerCards.size(); i++) {
+            Card card = firstPlayerCards.get(i);
+            cardsNames.add(card.getName());
+        }
+        JSONArray cards = cardsToJSON(cardsNames);
+        lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
+
+        System.out.println("Server - Sent cards " + cards + " to player " + lastPlayer.getName());
+
+        nbPlayersPlayed = 0;
+        for (Participant p: players) {
+            p.getSocket().sendEvent("turn");
+        }
+        turnNb++;
+    }
+
+    private void endGame() {
+        System.out.println("Server - Game end");
+
+        int bestScore = 0;
+        Participant bestPlayer = null;
+        for (Participant p: players) {
+            p.computeScore();
+
+            System.out.println("Server - " + p.getName() + " scored " + p.getScore());
+
+            if (p.getScore() > bestScore) {
+                bestScore = p.getScore();
+                bestPlayer = p;
+            }
+        }
+
+        System.out.println("Server - " + bestPlayer.getName() + " won the game !");
+    }
+
     private Participant findPlayer(SocketIOClient client) {
         Participant player = null;
 
@@ -176,49 +261,3 @@ public class Server {
         return cardsJ;
     }
 }
-
-/*public class Server {
-
-private void newTurn() {
-    ArrayList<Card> firstPlayerCards = players.get(0).getCards();
-    ArrayList<String> cardsNames = new ArrayList<>();
-
-    for (int i = 1; i < NB_PLAYERS; i++) {
-        Participant p = players.get(i);
-        Participant prevP = players.get(i-1);
-        ArrayList<Card> pCards = p.getCards();
-        prevP.clearCards();
-
-
-        for (int j = 0; j < pCards.size(); j++) {
-            Card card = pCards.get(j);
-            cardsNames.add(card.getName());
-
-
-        }
-        JSONArray cards = cardsToJSON(cardsNames);
-        prevP.getSocket().sendEvent("playerCards", cards.toString());
-        //prevP.getSocket().sendEvent("playerCards", cardName);
-        System.out.println("Server - Sent card " + cardsNames + " to player " + prevP.getname());
-    }
-
-    Participant lastPlayer = players.get(NB_PLAYERS - 1);
-    cardsNames.clear();
-    for (int i = 0; i < firstPlayerCards.size(); i++) {
-        Card card = firstPlayerCards.get(0);
-        cardsNames.add(card.getName());
-    }
-    JSONArray cards = cardsToJSON(cardsNames);
-    lastPlayer.getSocket().sendEvent("playerCards", cards.toString());
-
-    if (lastPlayer.cards.get(0).getType() == CardType.COMMERCIAL_STRUCTURE) {
-        lastPlayer.addScore(lastPlayer.cards.get(0).getValue());
-    }
-    System.out.println("Server - player: " + lastPlayer.getname() + " score: " + lastPlayer.getScore());
-    System.out.println("Server - Sent card " + cards + " to player " + lastPlayer.getname());
-    nbPlayersPlayed = 0;
-    for (Participant p: players) {
-        p.getSocket().sendEvent("turn");
-    }
-    turnNb++;
-}*/

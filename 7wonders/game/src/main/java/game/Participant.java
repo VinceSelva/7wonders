@@ -24,7 +24,7 @@ public class Participant {
         wonder = null;
         buildings = new ArrayList<>();
         hand = new ArrayList<>();
-        coins = 0;
+        coins = 3;
         score = 0;
     }
 
@@ -77,7 +77,7 @@ public class Participant {
             iterator.remove();
         }
 
-        if (coins > neededCoins) {
+        if (coins >= neededCoins) {
             return true;
         }
 
@@ -104,6 +104,18 @@ public class Participant {
             build(card);
         } else {
             discard(card);
+        }
+    }
+
+    public void computeScore() {
+        score = 0;
+
+        for (int i = 3; i <= coins; i += 3) {
+            score += 1;
+        }
+
+        for (Card card: buildings) {
+            score += card.getPoints();
         }
     }
 

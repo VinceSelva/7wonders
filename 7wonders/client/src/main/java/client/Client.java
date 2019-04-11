@@ -15,24 +15,22 @@ import java.util.ArrayList;
 
 public class Client {
     private Socket connection;
-    private String playerName;
     int turnNb = 0;
-    boolean ready = false;
     private Participant player = new Participant(null);
     private WonderList wonders = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
     
-    public Client(String serverURL, String playerName) {
+    public Client(String serverURL, String name) {
         try {
             connection = IO.socket(serverURL);
 
             connection.on("connect", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
-                    connection.emit("identification", playerName);
-                    setName(playerName);
+                    player.setName(name);
+                    connection.emit("identification", name);
 
-                    System.out.println("Connected to server with username " + playerName);
+                    System.out.println("Client - Connected to server with username " + name);
                 }
             });
 
@@ -45,7 +43,7 @@ public class Client {
                     player.setWonder(wonder);
 
                     // Signale au serveur que le joueur est prêt si il a des cartes et qu'il vient de recevoir une merveille
-                    if (player.getHand().size() > 0 && ready == false) {
+                    if (player.getHand().size() > 0 && turnNb == 0) {
                         connection.emit("ready", "");
                     }
                 }
@@ -69,7 +67,7 @@ public class Client {
                     }
 
                     // Signale au serveur que le joueur est prêt si il a une merveille et qu'il vient de recevoir les cartes
-                    if (player.getWonder() != null && ready == false) {
+                    if (player.getWonder() != null && turnNb == 0) {
                         connection.emit("ready", "");
                     }
                 }
@@ -92,20 +90,11 @@ public class Client {
 
         if (player.canBuild(card)) {
             player.build(card);
-            connection.emit("");
+            connection.emit("build", card.getName());
         } else {
             player.discard(card);
+            connection.emit("discard", card.getName());
         }
-
-        connection.emit("playedCard", card.getName());
-    }
-
-    public String getName() {
-        return playerName;
-    }
-
-    public void setName(String name) {
-        playerName = name;
     }
 
     public void connect() {
