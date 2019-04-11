@@ -6,7 +6,7 @@
 
 # Tâches réalisées
 * Création des tests pour la classe ParticipantTest
-* Création des tests pour la classe ParticipantTest
+* Création des tests pour la classe WonderListTest
 * Création de la JavaDoc pour les classes du package Game
 * Développement et refonte de toutes les classes
 * Ajout de la fin de l'âge I
