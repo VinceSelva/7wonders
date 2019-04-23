@@ -19,10 +19,12 @@ public class Client {
     private Participant player = new Participant(null);
     private WonderList wonders = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
+    private ClientType type;
     
-    public Client(String serverURL, String name) {
+    public Client(String serverURL, String name, ClientType type) {
         try {
             connection = IO.socket(serverURL);
+            this.type = type;
 
             connection.on("connect", new Emitter.Listener() {
                 @Override
@@ -86,14 +88,38 @@ public class Client {
     }
 
     private void play() {
-        Card card = player.getHand().get(0);
+        Card card;
 
-        if (player.canBuild(card)) {
-            player.build(card);
-            connection.emit("build", card.getName());
-        } else {
-            player.discard(card);
-            connection.emit("discard", card.getName());
+        switch (type) {
+            case PLAY_FIRST_CARD: {
+                card = player.getHand().get(0);
+
+                if (player.canBuild(card)) {
+                    player.build(card);
+                    connection.emit("build", card.getName());
+                } else {
+                    player.discard(card);
+                    connection.emit("discard", card.getName());
+                }
+
+                break;
+            }
+
+            case TRY_ONE_CARD: {
+                int index = player.bestPlay();
+                
+                if (index == -1) {
+                    card = player.getHand().get(0);
+                    player.discard(card);
+                    connection.emit("discard", card.getName());
+                } else {
+                    card = player.getHand().get(index);
+                    player.build(card);
+                    connection.emit("build", card.getName());
+                }
+
+                break;
+            }
         }
     }
 
