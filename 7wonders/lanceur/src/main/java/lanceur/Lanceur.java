@@ -1,5 +1,7 @@
 package lanceur;
 import client.Client;
+import client.ClientType;
+
 import com.corundumstudio.socketio.Configuration;
 import server.Server;
 
@@ -21,13 +23,15 @@ public class Lanceur {
         int port = (new Random()).nextInt(10000) + 10000;
         config.setPort(port);
 
-        for (int i=1 ; i<=nbPlayer;i++){
-            Client client = new Client("http://127.0.0.1:" + port, "Joueur"+ i);
-            client.connect();
-        }
-
         Server server = new Server(config);
         server.start();
 
+        Client client = new Client("http://127.0.0.1:" + port, "Joueur1", ClientType.PLAY_FIRST_CARD);
+        client.connect();
+
+        for (int i=2 ; i<=nbPlayer;i++){
+            client = new Client("http://127.0.0.1:" + port, "Joueur"+ i, ClientType.TRY_ONE_CARD);
+            client.connect();
+        }
     }
 }
