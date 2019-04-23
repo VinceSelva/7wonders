@@ -3,25 +3,38 @@ package game;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 public class Deck {
     private ArrayList<Card> cards;
 
-    public Deck() {
+    /**
+     * Construit un nouveau paquet de cartes vide
+     */
+    Deck() {
         cards = new ArrayList<>();
     }
 
-    public void addCard(Card card) {
+    /**
+     * Ajoute une carte au paquet
+     *
+     * @param card la carte à ajouter
+     */
+    void addCard(Card card) {
         cards.add(card);
     }
 
+    /**
+     * Mélange le paquet de cartes
+     */
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
     /**
-     * @param i qui represente l'index de la carte
-     * @return cards.get(1) retourne la carte a recuperer avec son index i
+     * Récupère une carte à une certaine position dans le paquet
+     *
+     * @param i la position de la carte à récupérer (de 0 à nbCartes-1)
+     * @exception RuntimeException si le paquet est vide
+     * @return la carte récupérée (Card)
      */
     public Card getCard(int i) {
         if (cards.size() > 0) {
@@ -32,10 +45,12 @@ public class Deck {
     }
 
     /**
-     * @param i qui represente l'index de la carte
-     * @return cards.remove(1) retourne la carte a enlever avec son index i
+     * Supprimer une carte à une certaine position dans le paquet
+     *
+     * @param i l'index de la carte à supprimer (de 0 à nbCartes-1)
+     * @exception RuntimeException si le paquet est vide
      */
-    public void removeCard(int i) {
+    void removeCard(int i) {
         if (cards.size() > 0) {
             cards.remove(i);
         } else {
@@ -44,15 +59,19 @@ public class Deck {
     }
 
     /**
-     * @return cards retourne les cartes de l'arraylist
+     * Récupère toutes les cartes du paquet
      *
+     * @return les cartes du paquet (ArrayList de Card)
      */
-    public ArrayList<Card> getCards() {
+    ArrayList<Card> getCards() {
         return cards;
     }
 
     /**
-     * @param name qui represente le nom de la carte
+     * Récupère une carte en fonction de son nom
+     *
+     * @param name le nom de la carte à récupérer
+     * @return la carte récupérée (Card)
      */
     public Card nameToCard(String name) {
         Card card = null;
