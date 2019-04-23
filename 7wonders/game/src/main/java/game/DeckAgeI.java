@@ -6,6 +6,9 @@ import game.Card;
 
 public class DeckAgeI extends Deck {
 
+	/**
+	 * Construit un paquet de cartes pour l'âge 1
+	 */
 	public DeckAgeI(){
 		super();
 
