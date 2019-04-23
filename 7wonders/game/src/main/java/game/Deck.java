@@ -26,8 +26,9 @@ public class Deck {
     public Card getCard(int i) {
         if (cards.size() > 0) {
             return cards.get(i);
+        } else {
+            throw new RuntimeException("The deck is empty");
         }
-        return null;
     }
 
     /**
@@ -37,6 +38,8 @@ public class Deck {
     public void removeCard(int i) {
         if (cards.size() > 0) {
             cards.remove(i);
+        } else {
+            throw new RuntimeException("The deck is empty");
         }
     }
 
