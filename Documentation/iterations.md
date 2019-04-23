@@ -39,7 +39,6 @@ Création du client serveur avec :
   * Ajouter des tests
   
 ## Livraison 7 : itération 7
-  * Ajouter l'âge 3
-  * Ajouter le deck pour l'âge 3 et les cartes correspondantes
-  * Ajouter les étapes de construction des merveilles
+  * Ajouter la JavaDoc (package serveur)
   * Ajouter la JavaDoc (package client)
+  * Ajout des tests (game, client, serveur)

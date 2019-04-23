@@ -20,13 +20,21 @@ public class Client {
     private WonderList wonders = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
     private ClientType type;
-    
+
+    /**
+     * @param serverURL
+     * @param name
+     * @param type
+     */
     public Client(String serverURL, String name, ClientType type) {
         try {
             connection = IO.socket(serverURL);
             this.type = type;
 
             connection.on("connect", new Emitter.Listener() {
+                /**
+                 * @param args
+                 */
                 @Override
                 public void call(Object... args) {
                     player.setName(name);
@@ -37,6 +45,9 @@ public class Client {
             });
 
             connection.on("playerWonder", new Emitter.Listener() {
+                /**
+                 * @param args
+                 */
                 @Override
                 public void call(Object... args) {
                     String wonderName = (String)args[0];
@@ -52,6 +63,9 @@ public class Client {
             });
 
             connection.on("playerCards", new Emitter.Listener() {
+                /**
+                 * @param args
+                 */
                 @Override
                 public void call(Object... args) {
                     try {
@@ -76,6 +90,9 @@ public class Client {
             });
 
             connection.on("turn", new Emitter.Listener() {
+                /**
+                 * @param args
+                 */
                 @Override
                 public void call(Object... args) {
                     play();
