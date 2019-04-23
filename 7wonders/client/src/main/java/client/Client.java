@@ -15,16 +15,18 @@ import java.util.ArrayList;
 
 public class Client {
     private Socket connection;
-    int turnNb = 0;
+    private int turnNb = 0;
     private Participant player = new Participant(null);
     private WonderList wonders = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
     private ClientType type;
 
     /**
-     * @param serverURL
-     * @param name
-     * @param type
+     * Lie la modélisation du joueur avec le client SocketIO
+     *
+     * @param serverURL l'adresse du serveur de jeu
+     * @param name le nom du joueur
+     * @param type le type de joueur (ClientType)
      */
     public Client(String serverURL, String name, ClientType type) {
         try {
@@ -32,9 +34,6 @@ public class Client {
             this.type = type;
 
             connection.on("connect", new Emitter.Listener() {
-                /**
-                 * @param args
-                 */
                 @Override
                 public void call(Object... args) {
                     player.setName(name);
@@ -45,9 +44,6 @@ public class Client {
             });
 
             connection.on("playerWonder", new Emitter.Listener() {
-                /**
-                 * @param args
-                 */
                 @Override
                 public void call(Object... args) {
                     String wonderName = (String)args[0];
@@ -63,9 +59,6 @@ public class Client {
             });
 
             connection.on("playerCards", new Emitter.Listener() {
-                /**
-                 * @param args
-                 */
                 @Override
                 public void call(Object... args) {
                     try {
@@ -90,9 +83,6 @@ public class Client {
             });
 
             connection.on("turn", new Emitter.Listener() {
-                /**
-                 * @param args
-                 */
                 @Override
                 public void call(Object... args) {
                     play();
@@ -104,6 +94,9 @@ public class Client {
         }
     }
 
+    /**
+     * Joue une carte en fonction du type de client
+     */
     private void play() {
         Card card;
 
@@ -140,6 +133,9 @@ public class Client {
         }
     }
 
+    /**
+     * Démarre la connexion au serveur
+     */
     public void connect() {
         connection.connect();
     }
