@@ -10,8 +10,15 @@ import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 public class Lanceur {
+    /**
+     * Créé le serveur et 4 clients (1 client qui jouera tout le temps la première cartes et 3 clients plus
+     *  "intelligents")
+     *
+     * @param args les arguments de la ligne de commande
+     */
     public static void main(String[] args) {
         int nbPlayer=4;
+
         try {
             System.setOut(new PrintStream(System.out, true, "UTF-8"));
         } catch (UnsupportedEncodingException e) {
