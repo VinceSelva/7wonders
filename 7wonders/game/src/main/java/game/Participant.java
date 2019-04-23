@@ -107,16 +107,41 @@ public class Participant {
         }
     }
 
+    public int bestPlay() {
+        for (int i = 0; i < hand.size(); i++) {
+            if (canBuild(hand.get(i))) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public void computeScore() {
         score = 0;
 
-        for (int i = 3; i <= coins; i += 3) {
-            score += 1;
-        }
+        score += (int)Math.floor(coins / 3);
 
         for (Card card: buildings) {
             score += card.getPoints();
         }
+    }
+
+    public String getScoreExplanations() {
+        String scoreStr = "[" + coins + " coins (" + (int)Math.floor(coins / 3) + " points)";
+
+        for (Card card: buildings) {
+            int points = card.getPoints();
+
+            if (points > 0) {
+                scoreStr += " + ";
+                scoreStr += card.getName() + "(" + points + " points)";
+            }
+        }
+
+        scoreStr += "]";
+
+        return scoreStr;
     }
 
     public SocketIOClient getSocket() {
