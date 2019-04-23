@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+
 public class Server {
     private SocketIOServer server;
     private ArrayList<Participant> players;
@@ -24,6 +25,9 @@ public class Server {
     private WonderList wonderList = new WonderList();
     private DeckAgeI deckAgeI = new DeckAgeI();
 
+    /**
+     * @param config
+     */
     public Server(Configuration config) {
         server = new SocketIOServer(config);
         players = new ArrayList<>();
@@ -31,6 +35,11 @@ public class Server {
         System.out.println("Server - Preparing listener ...");
 
         server.addConnectListener(new ConnectListener() {
+
+            /**
+             * Cette méthode permet de
+             * @param socketIOClient
+             */
             @Override
             public void onConnect(SocketIOClient socketIOClient) {
                 System.out.println("Server - New client connected : " + socketIOClient.getRemoteAddress());
@@ -44,6 +53,13 @@ public class Server {
         });
 
         server.addEventListener("identification", String.class, new DataListener<String>() {
+
+            /**
+             * @param client
+             * @param data
+             * @param askSender
+             * @throws Exception
+             */
             @Override
             public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
                 Participant p = findPlayer(client);
@@ -61,6 +77,13 @@ public class Server {
         });
 
         server.addEventListener("ready", String.class, new DataListener<String>() {
+
+            /**
+             * @param client
+             * @param data
+             * @param askSender
+             * @throws Exception
+             */
             @Override
             public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
                 nbPlayersReady++;
@@ -78,6 +101,13 @@ public class Server {
         });
 
         server.addEventListener("build", String.class, new DataListener<String>() {
+
+            /**
+             * @param client
+             * @param data
+             * @param askSender
+             * @throws Exception
+             */
             @Override
             public void onData(SocketIOClient client, String data, AckRequest askSender) throws Exception {
                 Participant player = findPlayer(client);
@@ -98,6 +128,13 @@ public class Server {
         });
 
         server.addEventListener("discard", String.class, new DataListener<String>() {
+
+            /**
+             * @param client
+             * @param data
+             * @param askSender
+             * @throws Exception
+             */
             @Override
             public void onData(SocketIOClient client, String data, AckRequest askSender)  throws Exception {
                 Participant player = findPlayer(client);
@@ -124,6 +161,9 @@ public class Server {
         System.out.println("Server - Waiting for connection");
     }
 
+    /**
+     * Ici la méthode permet de lancer le jeu en mélangeant les merveilles et les cartes
+     */
     private void startGame() {
         System.out.println("Server - Starting game");
 
@@ -161,6 +201,9 @@ public class Server {
         }
     }
 
+    /**
+     * Cette méthode permet de créer un nouveau tour de jeu et de le lancer
+     */
     private void newTurn() {
         System.out.println("Server - Starting new turn (turn " + (turnNb + 1) + ")");
 
@@ -205,6 +248,10 @@ public class Server {
         turnNb++;
     }
 
+    /**
+     * Cette méthode permet d'envoyer la fin du jeu, d'afficher le score du joueur et d'afficher le meilleur joueur
+     * de la partie, donc celui qui gagne la partie
+     */
     private void endGame() {
         System.out.println("Server - Game end");
 
@@ -225,6 +272,10 @@ public class Server {
         System.out.println("Server - " + bestPlayer.getName() + " won the game !");
     }
 
+    /**
+     * @param client
+     * @return player
+     */
     private Participant findPlayer(SocketIOClient client) {
         Participant player = null;
 
@@ -238,6 +289,7 @@ public class Server {
         return player;
     }
 
+
     private boolean allIdentified() {
         for (int i = 0; i < NB_PLAYERS; i++) {
             if (players.get(i).getName().equals("")) {
@@ -248,6 +300,10 @@ public class Server {
         return true;
     }
 
+    /**
+     * @param cards
+     * @return cardsJ
+     */
     private JSONArray cardsToJSON(ArrayList<String> cards) {
         JSONArray cardsJ = new JSONArray();
 
