@@ -46,7 +46,7 @@ public class Cost {
 	/**
 	 * Retourne un coût en pièces
 	 *
-	 * @return 0 ou le coût en pièces
+	 * @return 0 (si aucun coût) ou le coût en pièces
 	 */
 	int getCoinsCost() {
 		return coinsCost;
