@@ -37,7 +37,8 @@ public class Server {
         server.addConnectListener(new ConnectListener() {
 
             /**
-             * Cette méthode permet de
+             * Cette méthode s'occupe de la connexion des clients,
+             * et si il n'y a pas les 4 joueurs connectés on rajoute des joueurs
              * @param socketIOClient
              */
             @Override
@@ -163,6 +164,7 @@ public class Server {
 
     /**
      * Ici la méthode permet de lancer le jeu en mélangeant les merveilles et les cartes
+     * avant de les distribuer au joueur
      */
     private void startGame() {
         System.out.println("Server - Starting game");
@@ -290,6 +292,11 @@ public class Server {
     }
 
 
+    /**
+     * Cette méthode permet de verifier que tous les joueurs ont un nom
+     * @return false si un joueur ou plus n'a pas saisi de nom
+     * @return true si tous les joueurs ont un nom
+     */
     private boolean allIdentified() {
         for (int i = 0; i < NB_PLAYERS; i++) {
             if (players.get(i).getName().equals("")) {
