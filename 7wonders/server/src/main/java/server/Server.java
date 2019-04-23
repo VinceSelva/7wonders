@@ -66,7 +66,7 @@ public class Server {
                 nbPlayersReady++;
 
                 if (nbPlayersReady == NB_PLAYERS) {
-                    System.out.println("Server - Sending turn event");
+                    System.out.println("Server - Sending turn event (turn 1)");
 
                     for (Participant p: players) {
                         p.getSocket().sendEvent("turn");
@@ -162,7 +162,7 @@ public class Server {
     }
 
     private void newTurn() {
-        System.out.println("Server - Starting new turn");
+        System.out.println("Server - Starting new turn (turn " + (turnNb + 1) + ")");
 
         ArrayList<Card> firstPlayerCards = players.get(0).getHand();
         ArrayList<String> cardsNames = new ArrayList<>();
@@ -214,6 +214,7 @@ public class Server {
             p.computeScore();
 
             System.out.println("Server - " + p.getName() + " scored " + p.getScore());
+            System.out.println(p.getScoreExplanations());
 
             if (p.getScore() > bestScore) {
                 bestScore = p.getScore();
