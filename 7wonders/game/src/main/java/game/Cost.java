@@ -6,36 +6,49 @@ public class Cost {
 	private HashMap<String, Integer> resourcesCost;
 	private int coinsCost;
 
-	public Cost() {
+	/**
+	 * Représente un coût en ressources et en pièces
+	 */
+	Cost() {
 		this.resourcesCost = new HashMap<>();
 		this.coinsCost = 0;
 	}
 
 	/**
-	 * @param resourcesCost represente le cout de la carte pour la posée
+	 * Permet de créer un coût en ressources
+	 *
+	 * @param resourcesCost le coût à modéliser avec une HashMap de ressources (nom de la ressource en clef et nombre
+	 *  nécessaire en valeur)
 	 */
 	public Cost(HashMap<String, Integer> resourcesCost) {
 		this.resourcesCost = resourcesCost;
 		this.coinsCost = 0;
     }
 	/**
-	 * @param coins represente le cout en coins
+	 * Permet de créer un coût en pièces
+	 *
+	 * @param coins le coût à modéliser en pièces
 	 */
-    public Cost(int coins) {
+	Cost(int coins) {
 		this.resourcesCost = new HashMap<>();
 		this.coinsCost = coins;
 	}
+
 	/**
-	 * @return resourcesCost retourne le cout en ressources
+	 * Retourne un coût en ressources
+	 *
+	 * @return une HashMap contenant en clef le nom de la ressource et en valeur le nombre nécessaire
 	 */
-	public HashMap<String, Integer> getResourcesCost() {
+	HashMap<String, Integer> getResourcesCost() {
 		return resourcesCost;
 	}
 
 	/**
-	 * @return coinsCost retourne le cout en coins
+	 * Retourne un coût en pièces
+	 *
+	 * @return 0 ou le coût en pièces
 	 */
-	public int getCoinsCost() {
+	int getCoinsCost() {
 		return coinsCost;
 	}
 }
