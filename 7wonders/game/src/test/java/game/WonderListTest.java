@@ -1,15 +1,12 @@
 package game;
 
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
 public class WonderListTest {
     private WonderList wonderList;
 
@@ -31,7 +28,7 @@ public class WonderListTest {
     }
 
     @Test
-    public void testremoveWonder() {
+    public void testRemoveWonder() {
         wonderList = new WonderList();
         int avantRemove = wonderList.getwonders().size();
         wonderList.removeWonder(0);
@@ -39,12 +36,24 @@ public class WonderListTest {
     }
 
     @Test
-    public void testNameToWonder(){
+    public void testNameToWonder() {
         wonderList = new WonderList();
         Wonder wonder = new Wonder("GIZAH", RawMaterial.STONE) ;
         wonderList.addWonder(wonder);
         wonderList.addWonder(new Wonder("OLYMPIA", RawMaterial.WOOD));
         wonderList.addWonder(new Wonder("RHODOS", RawMaterial.ORE));
-        assertEquals(wonderList.nameToWonder("GIZAH"), wonder, "On devrait avoir retrouvé la wonder GIZAH");
+        assertEquals(wonderList.nameToWonder("GIZAH").toString(), wonder.toString(), "On devrait avoir retrouvé la wonder GIZAH");
+    }
+
+    @Test
+    public void testGetWonder() {
+        wonderList = new WonderList();
+        assertEquals(wonderList.getWonder(0).toString(), "[Wonder GIZAH, produces STONE]");
+    }
+
+    @Test
+    public void testGetWonders() {
+        wonderList = new WonderList();
+        assertEquals(wonderList.getwonders().toString(), "[[Wonder GIZAH, produces STONE], [Wonder BABYLON, produces BRICK], [Wonder OLYMPIA, produces WOOD], [Wonder RHODOS, produces ORE]]");
     }
 }

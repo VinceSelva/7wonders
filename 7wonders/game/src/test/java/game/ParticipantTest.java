@@ -13,53 +13,78 @@ import static org.junit.Assert.*;
 public class ParticipantTest {
     private Participant participant;
     private SocketIOClient socketIOClient;
+    private DeckAgeI deckAgeI;
 
     @Test
     public void testSetName() {
         participant = new Participant(socketIOClient);
+
         participant.setName("Test");
+
         assertEquals(participant.getName(), "Test");
     }
-/*
+
     @Test
-    public void testAddCard() {
+    public void testHand() {
         participant = new Participant(socketIOClient);
+        deckAgeI = new DeckAgeI();
+
         int avantAjout = participant.getHand().size();
         ArrayList<Card> cards = participant.getHand();
-        participant.addCard(new Card(CardType.RAW_MATERIAL, "TEST", RawMaterial.WOOD));
+        cards.add(deckAgeI.getCard(0));
         participant.setHand(cards);
-        assertNotEquals(avantAjout, cards.size());
-        assertEquals(cards.toString(), "[TEST, type : RAW_MATERIAL, valeur : 0]");
+
+        assertNotEquals(avantAjout, participant.getHand().size());
+        assertEquals(participant.getHand().toString(), "[[Card CHANTIER]]");
     }
 
     @Test
-    public void testClearCards() {
+    public void testBuildings() {
         participant = new Participant(socketIOClient);
-        participant.addCard(new Card(CardType.RAW_MATERIAL, "TEST", RawMaterial.WOOD));
-        participant.addCard(new Card(CardType.RAW_MATERIAL, "TEST2", RawMaterial.BRICK));
-        int avantClear = participant.getHand().size();
-        participant.clearCards();
-        assertNotEquals(avantClear, participant.getHand().size());
-        assertEquals(participant.getHand().toString(), "[]");
+        deckAgeI = new DeckAgeI();
+
+        int avantConstruction = participant.getBuildings().size();
+        participant.setHand(deckAgeI.getCards());
+        participant.build(participant.getHand().get(0));
+
+        assertNotEquals(avantConstruction, participant.getBuildings().size());
+        assertEquals(participant.getBuildings().toString(), "[[Card CHANTIER]]");
     }
 
     @Test
-    public void testRemoveCards() {
+    public void testWonder() {
         participant = new Participant(socketIOClient);
-        participant.addCard(new Card(CardType.RAW_MATERIAL, "TEST", RawMaterial.WOOD));
-        participant.addCard(new Card(CardType.RAW_MATERIAL, "TEST2", RawMaterial.BRICK));
-        int avantRemove = participant.getHand().size();
-        participant.discard(participant.getHand().size()-1);
-        assertNotEquals(avantRemove, participant.getHand().size());
-        assertEquals(participant.getHand().toString(), "[TEST, type : RAW_MATERIAL, valeur : 0]");
-    }*/
 
-    @Test
-    public void testAddWonder() {
-        participant = new Participant(socketIOClient);
         Wonder avantAjout = participant.getWonder();
         assertNull(avantAjout);
         participant.setWonder(new Wonder("TEST", RawMaterial.STONE));
-        assertEquals(participant.getWonder().toString(), "wonder TEST");
+
+        assertEquals(participant.getWonder().toString(), "[Wonder TEST, produces STONE]");
+    }
+
+    @Test
+    public void testScore() {
+        participant = new Participant(socketIOClient);
+        deckAgeI = new DeckAgeI();
+
+        assertEquals(participant.getScore(), 0);
+
+        participant.setHand(deckAgeI.getCards());
+        participant.build(participant.getHand().get(0));
+        participant.computeScore();
+
+        assertEquals(participant.getScore(), 1);
+        assertEquals(participant.getScoreExplanations(), "[3 coins (1 points)]");
+    }
+
+    @Test
+    public void testBestPlay() {
+        participant = new Participant(socketIOClient);
+        participant.setWonder(new Wonder("Test", RawMaterial.WOOD));
+        deckAgeI = new DeckAgeI();
+
+        participant.setHand(deckAgeI.getCards());
+
+        assertEquals(participant.bestPlay(), 0);
     }
 }

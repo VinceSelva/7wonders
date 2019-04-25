@@ -127,7 +127,7 @@ public class Participant {
      *
      * @param card la carte à jouer
      */
-    public void play(Card card) {
+    void play(Card card) {
         if (canBuild(card)) {
             build(card);
         } else {
